@@ -6,15 +6,30 @@ int main()
 {
     float a, b, c;
     float Y1, Y2;
-    cout << "Enter the value a : ";
+
+    // Input coefficients
+    cout << "Enter the value a: ";
     cin >> a;
-    cout << "Enter the value b : ";
+    cout << "Enter the value b: ";
     cin >> b;
-    cout << "Enter the value c : ";
+    cout << "Enter the value c: ";
     cin >> c;
-    Y1 = -b + (sqrt((b * b) - (4 * a * c)) / (2 * a));
-    Y2 = -b - (sqrt((b * b) - (4 * a * c)) / (2 * a));
-    cout << "Result process Y1 : " << Y1 << endl;
-    cout << "Result process Y2 : " << Y2 << endl;
+
+    // Calculate roots using the quadratic formula
+    float discriminant = b * b - 4 * a * c;
+
+    if (discriminant >= 0)
+    {
+        Y1 = (-b + sqrt(discriminant)) / (2 * a);
+        Y2 = (-b - sqrt(discriminant)) / (2 * a);
+
+        cout << "Root 1 (Y1): " << Y1 << endl;
+        cout << "Root 2 (Y2): " << Y2 << endl;
+    }
+    else
+    {
+        cout << "Complex roots. Cannot calculate real roots." << endl;
+    }
+
     return 0;
 }

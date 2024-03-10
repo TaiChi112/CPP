@@ -4,15 +4,13 @@ using namespace std;
 
 int main()
 {
-    float bath;
-    float dollar = 35.82;
-    float cent = 100;
+    float bath, dollar = 35.82, cent = 100; // declare variable and define default value
     cout << "Enter number of bath : ";
-    cin >> bath;
-    dollar = (bath / dollar);
-    cout << "bath to change dollar : " << dollar << endl;
-    int wholeDollars = dollar;
-    int remainingCents = (dollar - wholeDollars) * cent + 0.5; // rounding without cmath
+    cin >> bath;                                               // input number of bath
+    dollar = (bath / dollar);                                  // formula to change bath to dollar
+    cout << "bath to change dollar : " << dollar << endl;      // display bath to dollar
+    int wholeDollars = dollar;                                 //
+    int remainingCents = (dollar - wholeDollars) * cent + 0.5; // rounding without cmath +0.5 to rounding
     cout << "Bath to Dollar: " << wholeDollars << " dollars and " << remainingCents << " cents." << endl;
 
     return 0;

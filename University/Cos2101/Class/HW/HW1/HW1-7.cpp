@@ -4,9 +4,7 @@ using namespace std;
 
 int main()
 {
-    float a, b, c;
-    float Y1, Y2;
-
+    float a, b, c, Y1, Y2;
     // Input coefficients
     cout << "Enter the value a: ";
     cin >> a;

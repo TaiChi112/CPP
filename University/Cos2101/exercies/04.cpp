@@ -119,6 +119,47 @@ float areaCircle(float &radius)
 }
 int main()
 {
+    Goods goods00[2][2];
+
+    goods00[0][0].id = "001";
+    goods00[0][0].name = "Apple";
+    goods00[0][0].stock = 10;
+    goods00[0][0].cost = 100;
+    goods00[0][0].price = 200;
+
+    cout << "Your goods id : " << goods00[0][0].id << endl;
+    cout << "Your goods name : " << goods00[0][0].name << endl;
+    cout << "Your goods stock : " << goods00[0][0].stock << endl;
+    cout << "Your goods cost : " << goods00[0][0].cost << endl;
+    cout << "Your goods price : " << goods00[0][0].price << endl;
+    cout << "------------------------------------------------" << endl;
+
+    goods00[0][1] = {"002", "Orange", 20, 200, 400};
+
+    cout << "Your goods id : " << goods00[0][1].id << endl;
+    cout << "Your goods name : " << goods00[0][1].name << endl;
+    cout << "Your goods stock : " << goods00[0][1].stock << endl;
+    cout << "Your goods cost : " << goods00[0][1].cost << endl;
+    cout << "Your goods price : " << goods00[0][1].price << endl;
+    cout << "------------------------------------------------" << endl;
+
+    goods00[1][0] = Goods("003", "Banana", 30, 300, 600);
+    cout << "Your goods id : " << goods00[1][0].id << endl;
+    cout << "Your goods name : " << goods00[1][0].name << endl;
+    cout << "Your goods stock : " << goods00[1][0].stock << endl;
+    cout << "Your goods cost : " << goods00[1][0].cost << endl;
+    cout << "Your goods price : " << goods00[1][0].price << endl;
+
+    cout << "------------------------------------------------" << endl;
+    goods00[1][1] = Goods("004", "Banana", 30, 300, 600);
+    cout << "Your goods id : " << goods00[1][1].id << endl;
+    cout << "Your goods name : " << goods00[1][1].name << endl;
+    cout << "Your goods stock : " << goods00[1][1].stock << endl;
+    cout << "Your goods cost : " << goods00[1][1].cost << endl;
+    cout << "Your goods price : " << goods00[1][1].price << endl;
+
+    cout << "------------------------------------------------" << endl;
+    exit(0);
     Goods goods0[3];
 
     goods0[0].id = "001";

@@ -72,9 +72,70 @@ struct Test
     }
     Test(string name, int age, int weight, int height) : name(name), age(age), weight(weight), height(height) {}
 };
+struct Goods
+{
+    string id;
+    string name;
+    int stock;
+    int cost;
+    float price;
+};
+void Input(Goods &goods)
+{
 
+    cout << "Enter your goods id : ";
+    cin >> goods.id;
+    cout << "Enter your goods name : ";
+    cin >> goods.name;
+    cout << "Enter your goods stock : ";
+    cin >> goods.stock;
+    cout << "Enter your goods cost : ";
+    cin >> goods.cost;
+    cout << "Enter your goods price : ";
+    cin >> goods.price;
+}
+void Output(Goods &goods)
+{
+    cout << "Your goods id : " << goods.id << endl;
+    cout << "Your goods name : " << goods.name << endl;
+    cout << "Your goods stock : " << goods.stock << endl;
+    cout << "Your goods cost : " << goods.cost << endl;
+    cout << "Your goods price : " << goods.price << endl;
+}
+void addTen1(int &num)
+{
+    num += 10;
+}
+void addTen2(int num)
+{
+    num += 10;
+}
+
+float areaCircle(float &radius)
+{
+    return 3.14159 * radius * radius;
+}
 int main()
 {
+    float a = 10.0;
+    cout << "Area circle : " << areaCircle(a) << endl;
+    cout << "Before a equal 10.0 and then Now : " << a << endl;
+
+    int n = 112;
+    addTen1(n);
+    cout << "Value of n after addTen1 is : " << n << endl;
+
+    int x = 112;
+    addTen2(x);
+    cout << "Value of n after addTen2 is : " << x << endl;
+
+    Goods goods;
+    Input(goods);
+    cout << "------------------------------------------------" << endl;
+    Output(goods);
+
+    cout << "------------------------------------------------" << endl;
+
     Employee e;
     e.id = "001";
     e.fullname = "John Doe";
@@ -89,6 +150,7 @@ int main()
     cout << "salary : " << e.salary << endl;
 
     cout << "------------------------------------------------" << endl;
+
     Employee e2("002", "Jane Doe", 0, 21, 20000);
     cout << "Employee ID : " << e2.id << endl;
     cout << "fullname : " << e2.fullname << endl;
@@ -147,7 +209,7 @@ int main()
 
     cout << "----------------------------------------------------" << endl;
 
-    Test test0,test1, test2("TaiChi", 20, 165, 54);
+    Test test0, test1, test2("TaiChi", 20, 165, 54);
     test0.name = "Test0";
     test0.age = 112;
     test0.weight = 122;

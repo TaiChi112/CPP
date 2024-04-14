@@ -79,6 +79,8 @@ struct Goods
     int stock;
     int cost;
     float price;
+    Goods() {}
+    Goods(string id, string name, int stock, int cost, float price) : id(id), name(name), stock(stock), cost(cost), price(price) {}
 };
 void Input(Goods &goods)
 {
@@ -117,6 +119,41 @@ float areaCircle(float &radius)
 }
 int main()
 {
+    Goods goods0[3];
+
+    goods0[0].id = "001";
+    goods0[0].name = "Apple";
+    goods0[0].stock = 10;
+    goods0[0].cost = 100;
+    goods0[0].price = 200;
+    cout << "Your goods id : " << goods0[0].id << endl;
+    cout << "Your goods name : " << goods0[0].name << endl;
+    cout << "Your goods stock : " << goods0[0].stock << endl;
+    cout << "Your goods cost : " << goods0[0].cost << endl;
+    cout << "Your goods price : " << goods0[0].price << endl;
+
+    cout << "------------------------------------------------" << endl;
+
+    goods0[1] = {"002", "Orange", 20, 200, 400};
+    cout << "Your goods id : " << goods0[1].id << endl;
+    cout << "Your goods name : " << goods0[1].name << endl;
+    cout << "Your goods stock : " << goods0[1].stock << endl;
+    cout << "Your goods cost : " << goods0[1].cost << endl;
+    cout << "Your goods price : " << goods0[1].price << endl;
+
+    cout << "------------------------------------------------" << endl;
+
+    goods0[2] = Goods("003", "Banana", 30, 300, 600);
+    goods0[1] = {"002", "Orange", 20, 200, 400};
+    cout << "Your goods id : " << goods0[2].id << endl;
+    cout << "Your goods name : " << goods0[2].name << endl;
+    cout << "Your goods stock : " << goods0[2].stock << endl;
+    cout << "Your goods cost : " << goods0[2].cost << endl;
+    cout << "Your goods price : " << goods0[2].price << endl;
+
+    cout << "------------------------------------------------" << endl;
+
+    exit(0);
     float a = 10.0;
     cout << "Area circle : " << areaCircle(a) << endl;
     cout << "Before a equal 10.0 and then Now : " << a << endl;

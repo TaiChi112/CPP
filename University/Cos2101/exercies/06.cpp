@@ -34,11 +34,25 @@ int main()
     }
 
     Student student3[2];
+    int size = sizeof(student3) / sizeof(student3[0]);
+
+    cout << "size of array : " << size << endl;
     student3[0] = {"004", "Mark", 60};
     student3[1] = {"005", "Lisa", 50};
     for (int i = 0; i < 2; i++)
     {
         cout << student3[i].id << " " << student3[i].name << " " << student3[i].score << endl;
     }
+
+    int size1 = sizeof(student3);
+    int size2 = sizeof(student3[0]);
+    cout << "size of array varible1 : " << size1 << endl; // return the size of array byte unit
+    cout << "size of array varible2 : " << size2 << endl; // return the size of date type element
+
+    int test[2];
+    int testSizeByte = sizeof(test);        // return the size of array How many it's can store
+    int testSizeDataType = sizeof(test[0]); // data type int is 4 byte
+    cout << "size of array test : " << testSizeByte << endl;
+    cout << "size of array test[0] : " << testSizeDataType << endl;
     return 0;
 }

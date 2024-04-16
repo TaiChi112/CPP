@@ -17,6 +17,7 @@ int main()
     cout << "value volts : " << ele1->volts << endl;
     Electric *ele4 = new Electric;
     Electric ele2("10A", 220);
+    cout << "-------------------------------------" << endl;
     int a(5);
     int xo = 5;
     cout << a << endl;

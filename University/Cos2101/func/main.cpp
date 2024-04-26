@@ -112,6 +112,19 @@ void displaynode3(Node3 *test1)
 }
 int main()
 {
+    int x = 10;
+    int y(12);
+    int z{112};
+    int a[] = {1, 2, 2};
+    Node1 test00(10);
+    Node1 *test11 = new Node1(10);
+
+    cout << test00.data << endl;
+    cout << test11->data << endl;
+    cout << x << endl;
+    cout << y << endl;
+    cout << z << endl;
+
     cout << "Pointer to pointer" << endl;
     Node1 *test1 = new Node1(1);
     insertNode1(test1, 1);

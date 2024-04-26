@@ -112,7 +112,9 @@ void displaynode3(Node3 *test1)
 }
 int main()
 {
+    cout << "Pointer to pointer" << endl;
     Node1 *test1 = new Node1(1);
+    insertNode1(test1, 1);
     insertNode1(test1, 1);
     displaynode1(test1);
 
@@ -122,11 +124,13 @@ int main()
     test2->data = 1;
     test2->next = NULL;
     test2 = insertNode2(test2, 1);
+    test2 = insertNode2(test2, 1);
     displaynode2(test2);
 
     cout << "=====================" << endl;
 
     Node3 *test3 = NULL;
+    test3 = insertNode3(test3, 1);
     test3 = insertNode3(test3, 1);
     test3 = insertNode3(test3, 1);
     displaynode3(test3);

@@ -10,6 +10,7 @@ class Jewelry
 public:
       Jewelry() : price(990){};
       Jewelry(double price, int madeForm) : price(price), madeForm(madeForm){};
+      ~Jewelry() { cout << "Destructuring class Jewelry" << endl; }
 };
 class Gem
 {
@@ -17,6 +18,7 @@ class Gem
 
 public:
       Gem() : type(5){};
+      ~Gem() { cout << "Destructuring class Gem" << endl; }
 };
 class Ring : public Jewelry
 {
@@ -24,7 +26,8 @@ class Ring : public Jewelry
       int num;
 
 public:
-      Ring():Jewelry(3000,false),gems(nullptr),num(0){};
+      Ring() : Jewelry(3000, false), gems(nullptr), num(0){};
+      ~Ring() { cout << "Destructuring class Ring" << endl; }
 };
 class Necklace : public Jewelry
 {
@@ -32,6 +35,7 @@ class Necklace : public Jewelry
 
 public:
       Necklace() : Jewelry(22000, 1), pendant(true){};
+      ~Necklace() { cout << "Destructuring class Necklace" << endl; }
 };
 int main()
 {

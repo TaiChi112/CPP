@@ -4,49 +4,33 @@
 
 using namespace std;
 
-struct Node
-{
-    int data;
-    Node *next;
-    Node(){};
-    Node(int data) : data(data), next(NULL){};
-};
-Node *insertNode(Node *head, int data)
-{
-    Node *newNode = new Node(data);
-    if (head == NULL)
-    {
-        head = newNode;
-    }
-    else
-    {
-        Node *temp = head;
-        while (temp->next != NULL)
-        {
-            temp = temp->next;
-        }
-        temp->next = newNode;
-    }
-    return head;
-}
-void displayNode(Node *head)
-{
-    Node *temp = head;
-    while (temp != NULL)
-    {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-}
+// Basic data types in C++
+
+// Interger type : int ,short, long, long long,signed,unsigned
+
+// Floating point type : float, double, long double
+
+// Character type : char, wchar_t, char16_t, char32_t , unsigned char
+
+// Boolean type : bool
+
+// Void Type : void
+
+// intermediate data types : 
+// Enumerations(enum), Structures(struct), Pointer(*), Array([]), References(&), Typedefs(typedef), Unions(union)
+
+// Advanced data types : Classes, Templates, STL Containers, STL Algorithms, Smart Pointers, Iterators, Function Objects(functors), Lambda Expressions, Exception Handling, RTTI, Type Casting, Namespaces, Preprocessor Directives, File Handling, Multithreading, Sockets, Graphics, GUI, Database, Web Programming, Game Programming, Network Programming, Design Patterns, Data Structures, Algorithms, Cryptography, Security, Testing, Debugging, Logging, Optimization, Profiling, Memory Management, Performance, Scalability, Portability, Interoperability, Compatibility, Maintainability, Reusability, Extensibility, Flexibility, Robustness, Reliability, Availability, Integrity, Usability, Accessibility, Internationalization, Localization, Documentation, Licensing, Distribution, Deployment, Versioning, Migration, Integration, Configuration, Customization, Personalization, Serialization, Synchronization, Serialization, Validation, Transformation, Persistence, Serialization, Marshalling, Unmarshalling, Encoding, Decoding, Compression, Encryption, Decryption, Hashing, Salting, Signing, Verifying, Certifying, Authenticating, Authorizing, Auditing, Logging, Monitoring, Reporting, Alerting, Notifying, Messaging, Chatting, Emailing, Calling, Videoing, Streaming, Sharing, Collaborating, Socializing, Networking, Searching, Indexing, Ranking, Recommending, Filtering, Sorting
+
+struct MyInt{};
+struct MyChar{};
+struct MyString{};
+
 int main()
 {
-    Node *head = new Node(1);
-    head->next = new Node(2);
-
-    insertNode(head, 3);
-    insertNode(head, 113);
-    insertNode(head, 112);
-    displayNode(head);
-
+    int x1;
+    char x2;
     return 0;
 }
+
+// User define data type | Custom data type
+// Built-in data type | Primitive data type

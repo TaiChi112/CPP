@@ -4,33 +4,21 @@
 
 using namespace std;
 
-// Basic data types in C++
-
-// Interger type : int ,short, long, long long,signed,unsigned
-
-// Floating point type : float, double, long double
-
-// Character type : char, wchar_t, char16_t, char32_t , unsigned char
-
-// Boolean type : bool
-
-// Void Type : void
-
-// intermediate data types : 
-// Enumerations(enum), Structures(struct), Pointer(*), Array([]), References(&), Typedefs(typedef), Unions(union)
-
-// Advanced data types : Classes, Templates, STL Containers, STL Algorithms, Smart Pointers, Iterators, Function Objects(functors), Lambda Expressions, Exception Handling, RTTI, Type Casting, Namespaces, Preprocessor Directives, File Handling, Multithreading, Sockets, Graphics, GUI, Database, Web Programming, Game Programming, Network Programming, Design Patterns, Data Structures, Algorithms, Cryptography, Security, Testing, Debugging, Logging, Optimization, Profiling, Memory Management, Performance, Scalability, Portability, Interoperability, Compatibility, Maintainability, Reusability, Extensibility, Flexibility, Robustness, Reliability, Availability, Integrity, Usability, Accessibility, Internationalization, Localization, Documentation, Licensing, Distribution, Deployment, Versioning, Migration, Integration, Configuration, Customization, Personalization, Serialization, Synchronization, Serialization, Validation, Transformation, Persistence, Serialization, Marshalling, Unmarshalling, Encoding, Decoding, Compression, Encryption, Decryption, Hashing, Salting, Signing, Verifying, Certifying, Authenticating, Authorizing, Auditing, Logging, Monitoring, Reporting, Alerting, Notifying, Messaging, Chatting, Emailing, Calling, Videoing, Streaming, Sharing, Collaborating, Socializing, Networking, Searching, Indexing, Ranking, Recommending, Filtering, Sorting
-
-struct MyInt{};
-struct MyChar{};
-struct MyString{};
-
 int main()
 {
-    int x1;
-    char x2;
+    char char1;
+    char1 = 'T';
+    cout << "Value char1 : " << char1 << endl;
+    cout << "Address char1 : " << static_cast<void *>(&char1) << endl;
+
+    int int1;
+    int1 = 112;
+    cout << "Value int1 : " << int1 << endl;
+    cout << "Address int1 : " << &int1 << endl;
+
+    string string1;
+    string1 = "Hello World!";
+    cout << "Value string1 : " << string1 << endl;
+    cout << "Value string1 : " << &string1 << endl;
     return 0;
 }
-
-// User define data type | Custom data type
-// Built-in data type | Primitive data type

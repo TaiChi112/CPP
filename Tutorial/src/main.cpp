@@ -1,24 +1,29 @@
 #include <iostream>
 #include "class.h"
 #include "mid.h"
+#include "type.h"
 
 using namespace std;
 
 int main()
 {
-    char char1;
-    char1 = 'T';
-    cout << "Value char1 : " << char1 << endl;
-    cout << "Address char1 : " << static_cast<void *>(&char1) << endl;
+    Types char1;
+    char1.setChar('A');
+    char1.showChar();
 
-    int int1;
-    int1 = 112;
-    cout << "Value int1 : " << int1 << endl;
-    cout << "Address int1 : " << &int1 << endl;
+    MyInt int1;
+    int1.setInt(112);
+    int1.showInt();
 
-    string string1;
-    string1 = "Hello World!";
-    cout << "Value string1 : " << string1 << endl;
-    cout << "Value string1 : " << &string1 << endl;
+    MyString string1;
+    string1.setString("Hi C++");
+    string1.showString();
+    // int1 = 112;
+    // cout << "Value int1 : " << int1 << endl;
+    // cout << "Address int1 : " << &int1 << endl;
+
+    // string1 = "Hello World!";
+    // cout << "Value string1 : " << string1 << endl;
+    // cout << "Value string1 : " << &string1 << endl;
     return 0;
 }

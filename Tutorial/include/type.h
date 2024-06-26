@@ -23,25 +23,25 @@ public:
             cout << "Address char1 : " << static_cast<void *>(&char1) << endl;
       }
 };
-class MyInt
-{
-      int int1;
+// class MyInt
+// {
+//       int int1;
 
-public:
-      void setInt(int int1)
-      {
-            this->int1 = int1;
-      }
-      int getInt()
-      {
-            return int1;
-      }
-      void showInt()
-      {
-            cout << "Value int1 : " << getInt() << endl;
-            cout << "Address int1 : " << &int1 << endl;
-      }
-};
+// public:
+//       void setInt(int int1)
+//       {
+//             this->int1 = int1;
+//       }
+//       int getInt()
+//       {
+//             return int1;
+//       }
+//       void showInt()
+//       {
+//             cout << "Value int1 : " << getInt() << endl;
+//             cout << "Address int1 : " << &int1 << endl;
+//       }
+// };
 class MyString
 {
       string string1;
@@ -61,5 +61,20 @@ public:
             cout << "Address string1 : " << &string1 << endl;
       }
 };
+// class MyInt
+// {
+// public:
+//       string name;
+//       int age;
+
+//       MyInt() : name(""), age(0) {}
+//       MyInt(int val) : name(""), age(val) {}
+
+//       MyInt &operator=(int val)
+//       {
+//             age = val;
+//             return *this;
+//       }
+// };
 
 #endif

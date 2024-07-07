@@ -1,0 +1,4 @@
+output
+.vscode
+**/*.exe
+Archive.zip

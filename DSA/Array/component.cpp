@@ -3,12 +3,18 @@
 
 using namespace std;
 
-Array::Array() : size(10), length(0)
+Array1::Array1() : size(10), length(0)
 {
     A = new int[size];
 }
 
-Array::Array(int size) : size(size), length(0)
+Array1::Array1(int size) : size(size), length(0)
 {
     A = new int[size];
 }
+Array1::~Array1()
+{
+    delete[] A;
+}
+
+ 

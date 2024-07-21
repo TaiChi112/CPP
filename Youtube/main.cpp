@@ -31,5 +31,13 @@ int main()
     cout << node0 << endl;
     cout << node1.getData() << endl;
     cout << node2.data << endl;
+
+    int *ptr0 = &node0;
+    Node1 *ptr1 = &node1;
+    Node2 *ptr2 = &node2;
+
+    cout << *ptr0 << endl;
+    cout << ptr1->getData() << endl;
+    cout << ptr2->data << endl;
     return 0;
 }

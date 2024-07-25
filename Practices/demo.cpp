@@ -21,7 +21,7 @@ void getByIndex(int array[], int size, int index)
       }
 }
 void getValueStartIndexToEndIndex(int array[], int size, int startIndex,int endIndex){
-      
+      if(startIndex >= 0 && startIndex < size && endIndex >= 0 && endIndex < size){}
 }
 void separatorLine()
 {

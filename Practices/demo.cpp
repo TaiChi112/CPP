@@ -20,6 +20,9 @@ void getByIndex(int array[], int size, int index)
             cerr << "Error : Invalid index " << index << " Valid range is 0 to " << (size - 1) << endl;
       }
 }
+void getValueStartIndexToEndIndex(int array[], int size, int startIndex,int endIndex){
+      
+}
 void separatorLine()
 {
       cout << "--------------------------------" << endl;

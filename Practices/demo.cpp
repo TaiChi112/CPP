@@ -15,12 +15,22 @@ void getByIndex(int array[], int size, int index)
       {
             cout << array[index] << " : " << &array[index] << endl;
       }
+      else
+      {
+            cerr << "Error : Invalid index " << index << " Valid range is 0 to " << (size - 1) << endl;
+      }
 }
+void separatorLine()
+{
+      cout << "--------------------------------" << endl;
+}
+
 int main()
 {
       int myArray[5]{112, 113, 114, 112, 118};
       int size{sizeof(myArray) / sizeof(myArray[0])};
       gets(myArray, size);
-      getByIndex(myArray, size, 2);
+      separatorLine();
+      getByIndex(myArray, size, 9);
       return 0;
 }

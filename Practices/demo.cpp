@@ -2,22 +2,9 @@
 
 using namespace std;
 
-struct Node
-{
-      int data;
-      Node() {}
-      Node(int data) : data(data) {}
-};
-
 int main()
 {
-      int data1(112);
-
-      cout << "assign value data1 : " << data1 << " successfully" << endl;
-
-      Node data2(113);
-
-      cout << "assign value data2 : " << data2.data << " successfully" << endl;
-
+      int myArray[5]{0, 1, 2, 3, 4};
+      int size{sizeof(myArray) / sizeof(myArray[0])};
       return 0;
 }

@@ -50,5 +50,6 @@ int main()
       getByIndex(myArray, size, 0);
       separatorLine();
       getValueStartIndexToEndIndex(myArray, size, 1, 2);
+      cout<<"Hello world!"<<endl;
       return 0;
 }

@@ -41,6 +41,7 @@ void separatorLine()
 
 int main()
 {
+      int *p(new int(10));     
       int myArray[5]{112, 113, 114, 112, 118};
       int size{sizeof(myArray) / sizeof(myArray[0])};
       gets(myArray, size);

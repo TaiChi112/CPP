@@ -18,5 +18,10 @@ int main(){
     Node node2;
     node2.data = 112;
     node2.address = nullptr;
+
+    Node *node3{new Node(113)};
+    node3->address = nullptr;
+
+    Node *node4{new Node(114, nullptr)};
     return 0;
 }

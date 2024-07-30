@@ -5,6 +5,9 @@ struct Node
 {
     int data;
     Node *address;
+    Node(){};
+    Node(int data) : data(data), address(nullptr){};
+    Node(int data, Node *address) : data(data), address(address){};
 };
 
 int main(){

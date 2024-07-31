@@ -9,6 +9,20 @@ struct Node
     Node(int data) : data(data), address(nullptr) {};
     Node(int data, Node *address) : data(data), address(address) {};
 
+    Node *append(Node *node, int data){
+        Node *newNode = new Node(data);
+
+        if(node == nullptr){
+            node = newNode;
+            return;
+        }
+
+        Node *temp = node;
+        while(temp->address != nullptr){
+            temp = temp->address;
+        }
+        temp->address = newNode;
+    }
     void display(Node *node)
     {
         while (node != nullptr)
@@ -28,6 +42,8 @@ struct Node
         }
         return node;
     }
+
+
     void separatorLine();
 };
 void Node::separatorLine()
@@ -41,8 +57,6 @@ int main()
     node1->data = 100;
     node1->address = nullptr;
     node1->display(node1);
-
-    node1->separatorLine();
     
     Node node2;
     node2.data = 112;

@@ -102,5 +102,7 @@ int main()
       stack.deleteValue(50);
 
       stack.pop();
+
+      cout<<"Hello world!"<<endl;
       return 0;
 }

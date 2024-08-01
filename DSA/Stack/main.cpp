@@ -31,6 +31,18 @@ public:
             }
             cout << "Pushed : " << value << endl;
       }
+      void pop()
+      {
+            if (top == nullptr)
+            {
+                  cout << "Stack is empty" << endl;
+                  return;
+            }
+            Node *temp = top;
+            top = top->next;
+            cout << "Popped : " << temp->data << endl;
+            delete temp;
+      }
 };
 int main()
 {

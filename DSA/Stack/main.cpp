@@ -38,7 +38,6 @@ public:
                   cout << top->data << endl;
                   top = top->next;
             }
-
       }
       void update(int oldVal, int newVal)
       {
@@ -55,6 +54,37 @@ public:
             }
             cout << "Value " << oldVal << " not found in the stack.\n";
       }
+      void deleteValue(int value)
+      {
+            if (top == nullptr)
+            {
+                  cout << "Stack is empty.\n";
+                  return;
+            }
+            if (top->data == value)
+            {
+                  Node *temp = top;
+                  top = top->next;
+                  cout << "Deleted " << temp->data << " from the stack.\n";
+                  delete temp;
+                  return;
+            }
+            Node *temp = top;
+            Node *prev = nullptr;
+            while (temp != nullptr && temp->data != value)
+            {
+                  prev = temp;
+                  temp = temp->next;
+            }
+            if (temp == nullptr)
+            {
+                  cout << "Value " << value << " not found in the stack.\n";
+                  return;
+            }
+            prev->next = temp->next;
+            cout << "Deleted " << temp->data << " from the stack.\n";
+            delete temp;
+      }
 };
 int main()
 {
@@ -67,6 +97,9 @@ int main()
 
       stack.update(20, 50);
       stack.update(40, 50);
+
+      stack.pop();
+      stack.deleteValue(50);
 
       stack.pop();
       return 0;

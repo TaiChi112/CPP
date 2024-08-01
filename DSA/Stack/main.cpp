@@ -33,19 +33,41 @@ public:
       }
       void pop()
       {
-            if (top == nullptr)
+            while (top != nullptr)
             {
-                  cout << "Stack is empty" << endl;
-                  return;
+                  cout << top->data << endl;
+                  top = top->next;
             }
+
+      }
+      void update(int oldVal, int newVal)
+      {
             Node *temp = top;
-            top = top->next;
-            cout << "Popped : " << temp->data << endl;
-            delete temp;
+            while (temp != nullptr)
+            {
+                  if (temp->data == oldVal)
+                  {
+                        temp->data = newVal;
+                        cout << "Updated value " << oldVal << " to " << newVal << ".\n";
+                        return;
+                  }
+                  temp = temp->next;
+            }
+            cout << "Value " << oldVal << " not found in the stack.\n";
       }
 };
 int main()
 {
+      Stack stack;
+      stack.push(10);
+      stack.push(20);
+      stack.push(30);
 
+      stack.pop();
+
+      stack.update(20, 50);
+      stack.update(40, 50);
+
+      stack.pop();
       return 0;
 }

@@ -1,20 +1,12 @@
 #include <iostream>
+#include "../include/test1.cpp"
 
 using namespace std;
 
-void input(int *value)
-{
-      cout << "Input you value : ";
-      cin >> *value;
-}
-void output(int *value)
-{
-      cout << "Output you value : " << *value << endl;
-}
 int main()
 {
-      int x;
-      input(&x);
-      output(&x);
+      int value;
+      input(&value);
+      output(&value);
       return 0;
 }

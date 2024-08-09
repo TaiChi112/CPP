@@ -46,6 +46,29 @@ Node *update(Node *node, int old_data, int new_data)
     }
     return node;
 }
+Node *delete_node(Node *node, int data)
+{
+    Node *temp = node;
+    Node *prev = nullptr;
+    while (temp != nullptr)
+    {
+        if (temp->data == data)
+        {
+            if (prev == nullptr)
+            {
+                node = temp->next;
+                delete temp;
+                return node;
+            }
+            prev->next = temp->next;
+            delete temp;
+            return node;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    return node;
+}
 
 int main()
 {
@@ -58,6 +81,9 @@ int main()
     cout<<"-------"<<endl;
     node = update(node, 123, 125);
     node = update(node, 112, 999);
+    display_node(node);
+    cout<<"-------"<<endl;
+    node = delete_node(node, 999);
     display_node(node);
     return 0;
 }

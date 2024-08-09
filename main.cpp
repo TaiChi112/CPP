@@ -21,5 +21,13 @@ int main()
       showAddress(data4);
       data2.showAddress(data5);
       data3.showAddress(data6);
+
+      int *dataPtr = createDynamicMemory(115);
+      data2.craeteDynamicMemory(116);
+      data3.createDynamicMemory(117);
+
+      showDynamicMemory(dataPtr);
+      data2.showDynamicMemory(data5);
+      data3.showDynamicMemory(data6);
       return 0;
 }

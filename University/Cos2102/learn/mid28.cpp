@@ -4,3 +4,10 @@ using namespace std;
 class Food
 {
 };
+class Meat
+{
+};
+
+class Vegetable
+{
+};

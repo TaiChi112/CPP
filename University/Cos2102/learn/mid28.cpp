@@ -9,6 +9,15 @@ class Food
     Meat *meat;
     Vegetable *veg;
 };
+class Soup : public Food
+{
+    int type;
+    int spicyLevel;
+};
+class Kaopada : public Food
+{
+    int type;
+};
 class Meat
 {
     int type;

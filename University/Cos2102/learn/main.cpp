@@ -21,5 +21,7 @@ int main()
     p1.show();
     Person p2(180, 80);
     p2.show();
+    Person p3(160, 50);
+    p3.show();
     return 0;
 }

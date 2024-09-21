@@ -1,0 +1,46 @@
+# ไฟล์วัตถุที่สร้างขึ้นหลังจากการคอมไพล์
+*.o
+*.obj
+
+# ไฟล์ที่เป็นผลลัพธ์ของการเชื่อมโยงโปรแกรม
+*.exe
+*.out
+*.app
+*.lib
+*.dll
+*.so
+*.dylib
+
+# ไฟล์การดีบัก
+*.log
+*.stackdump
+
+# ไฟล์สำรองหรือไฟล์ชั่วคราวจากเครื่องมือพัฒนา
+*.tmp
+*.bak
+*.swp
+*.swo
+*.swn
+
+# ไฟล์ข้อมูลที่สร้างจาก IDE
+*.vscode/
+*.code-workspace
+*.idea/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.CMakeLists.txt.user
+
+# ไฟล์จากระบบปฏิบัติการที่ไม่เกี่ยวข้อง
+.DS_Store
+Thumbs.db
+
+# ไฟล์คอมไพเลอร์ CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# ไฟล์ binary ที่สร้างจากการคอมไพล์
+bin/
+build/

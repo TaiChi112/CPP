@@ -6,25 +6,17 @@ class Vegetable
     string name;
 
 public:
-    Vegetable();
-    ~Vegetable();
-    void setName(string name);
-    string getName();
-    void show();
+    Vegetable() {}
+    void setName(string name)
+    {
+        this->name = name;
+    }
+    string getName()
+    {
+        return name;
+    }
+    void showName()
+    {
+        cout << "Name of your vegetable : " << name << endl;
+    }
 };
-Vegetable::Vegetable()
-{
-    this->setName("null");
-}
-void Vegetable::setName(string name)
-{
-    this->name = name;
-}
-string Vegetable::getName()
-{
-    return name;
-}
-void Vegetable::show()
-{
-    cout << "Vegetable name : " << getName() << endl;
-}

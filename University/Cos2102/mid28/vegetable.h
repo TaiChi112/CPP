@@ -23,7 +23,7 @@ public:
     }
     void showNameVegetable()
     {
-        cout << "Name of vegetable is " << name << endl;
+        cout << "You have chosen vegetable : " << name << endl;
     }
 };
 

@@ -17,27 +17,48 @@ class Food
     static int objectCount;
 
 public:
-    Food() : price(0), meat(nullptr), vegetable(nullptr), meatNum(0), vegetableNum(0){
+    Food() : price(0), meat(nullptr), vegetable(nullptr), meatNum(0), vegetableNum(0)
+    {
         objectCount++;
     }
 
+    Food(double price) : meat(nullptr), vegetable(nullptr), meatNum(0), vegetableNum(0)
+    {
+        setPrice(price);
+        objectCount++;
+    }
 
     ~Food()
     {
         objectCount--;
-        delete[] meat;
-        delete[] vegetable;
+        if (meat)
+            delete[] meat;
+        if (vegetable)
+            delete[] vegetable;
     }
     void setMeatNum(int meatNum)
     {
         this->meatNum = meatNum;
         meat = new Meat[meatNum];
     }
+    // void setMeatNum(int meatNum)
+    // {
+    //     // ลบหน่วยความจำเก่าก่อนที่จะจัดสรรใหม่
+    //     if (meat) delete[] meat;
+    //     this->meatNum = meatNum;
+    //     meat = new Meat[meatNum];
+    // }
     void setVegetableNum(int vegetableNum)
     {
         this->vegetableNum = vegetableNum;
         vegetable = new Vegetable[vegetableNum];
     }
+    // void setVegetableNum(int vegetableNum)
+    // {
+    //     if (vegetable) delete[] vegetable;
+    //     this->vegetableNum = vegetableNum;
+    //     vegetable = new Vegetable[vegetableNum];
+    // }
     void setMeat(int index, Meat m)
     {
         if (index < meatNum)
@@ -54,22 +75,7 @@ public:
             vegetable[index] = v;
         }
     }
-    // void setMeat(Meat *meat, int index)
-    // {
-    //     // this->meat[index] = *meat;
-    //     if (index < meatNum)
-    //     {
-    //         this->meat[index] = meat[index];
-    //     }
-    // }
-    // void setVegetable(Vegetable *vegetable, int index)
-    // {
-    //     // this->vegetable[index] = *vegetable;
-    //     if (index < vegetableNum)
-    //     {
-    //         this->vegetable[index] = vegetable[index];
-    //     }
-    // }
+
     void setPrice(double price)
     {
         this->price = price;
@@ -80,7 +86,7 @@ public:
     }
     void showPrice()
     {
-        cout << "Price of food is $" << price <<" dollar"<< endl;
+        cout << "Price of food is $" << price << " dollar" << endl;
     }
     void showMeat()
     {
@@ -103,3 +109,20 @@ public:
 };
 int Food::objectCount = 0;
 #endif // FOOD_H
+
+// void setMeat(Meat *meat, int index)
+// {
+//     // this->meat[index] = *meat;
+//     if (index < meatNum)
+//     {
+//         this->meat[index] = meat[index];
+//     }
+// }
+// void setVegetable(Vegetable *vegetable, int index)
+// {
+//     // this->vegetable[index] = *vegetable;
+//     if (index < vegetableNum)
+//     {
+//         this->vegetable[index] = vegetable[index];
+//     }
+// }

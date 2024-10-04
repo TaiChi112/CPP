@@ -12,7 +12,12 @@ class Soup : public Food
     int spicyLevel;
 
 public:
-    void setType(int type)
+    Soup(){}
+    Soup(int type,int spicyLevel, double price) :Food(price) {
+        setTypeSoup(type);
+        setSpicyLevel(spicyLevel);
+    }
+    void setTypeSoup(int type)
     {
         this->type = type;
     }

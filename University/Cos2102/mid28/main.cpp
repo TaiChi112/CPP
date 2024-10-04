@@ -11,7 +11,7 @@ int main()
     // จัดสรร array เนื้อสัตว์และผักให้กับ s[0] (ต้มยำ)
     s[0].setMeatNum(3);      // มีเนื้อสัตว์ 3 อย่าง
     s[0].setVegetableNum(0); // ไม่มีผัก
-    s[0].setType(1);         // ต้มยำ
+    s[0].setTypeSoup(1);         // ต้มยำ
     s[0].setSpicyLevel(3);   // เผ็ดมาก
     s[0].setMeat(0, Meat(1));
     s[0].setMeat(1, Meat(2));
@@ -21,7 +21,7 @@ int main()
     // จัดสรร array เนื้อสัตว์และผักให้กับ s[1] (แกงส้ม)
     s[1].setMeatNum(1);      // มีเนื้อสัตว์ 1 อย่าง
     s[1].setVegetableNum(2); // มีผัก 2 อย่าง
-    s[1].setType(2);         // แกงส้ม
+    s[1].setTypeSoup(2);         // แกงส้ม
     s[1].setSpicyLevel(2);   // เผ็ดกลาง
     s[1].setMeat(0, Meat(1));
     s[1].setVegetable(0, Vegetable("Tomato"));
@@ -46,7 +46,7 @@ int main()
     s[1].showPrice();
 
     cout << "=====================================" << endl;
-
+    cout << "Kaopad 0:" << endl;
     Kaopad k[1];
     k[0].setPrice(120.0);
     k[0].setTypeKaopad(2);
@@ -54,7 +54,7 @@ int main()
     k[0].setMeat(0, Meat(1));
     k[0].setVegetableNum(2);
     k[0].setVegetable(0, Vegetable("Carrot"));
-    k[0].setVegetable(0, Vegetable("Onion"));
+    k[0].setVegetable(1, Vegetable("Onion"));
 
     k[0].showTypeKaopad();
     k[0].showMeat();

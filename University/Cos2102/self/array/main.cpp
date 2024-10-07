@@ -15,25 +15,69 @@ public:
     {
         cout << "value: " << value << endl;
     }
+    void setA(int *a, int *b)
+    {
+        ++*a;
+        ++*b;
+        a = new int(5);
+        b = new int(6);
+        delete a, b;
+    };
 };
-
+int f1()
+{
+    int x(3);
+    return x;
+}
+// int &f2()
+// {
+//     static int y(3);
+//     return y;
+// }
+int *f3()
+{
+    int *z = new int(4);
+    return z;
+}
 int main()
 {
-    MyArray arr[3];
+    int a;
+    a = f1();
+    cout << "a: " << a << endl;
 
-    for (int i = 0; i < 3; i++)
-    {
-        int input;
-        cout << "Enter value for arr[" << i << "]: ";
-        cin >> input;
-        arr[i].setValue(input);
-    }
+    // int b(f2());
+    // cout << "b: " << b << endl;
 
-    for (int i = 0; i < 3; i++)
-    {
-        cout << "arr[" << i << "].value: ";
-        arr[i].show();
-    }
+    int *c;
+    cout << &c << endl;
+    c = f3();
+    cout << "c: " << c << endl;
+    delete c;
+
+    // MyArray arr[3];
+
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     int input;
+    //     cout << "Enter value for arr[" << i << "]: ";
+    //     cin >> input;
+    //     arr[i].setValue(input);
+    // }
+
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     cout << "arr[" << i << "].value: ";
+    //     arr[i].show();
+    // }
+    // MyArray a;
+    // int *p = new int(3);
+    // int *q = new int(5);
+    // cout << "p: " << *p << " q: " << *q << endl;
+
+    // a.setA(p, q);
+    // cout << "p: " << *p << " q: " << *q << endl;
+
+    // delete p, q;
 
     return 0;
 }

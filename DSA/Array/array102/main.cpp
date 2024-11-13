@@ -2,30 +2,37 @@
 
 using namespace std;
 
+void displayarray(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        cout << "value index at " << i << " : " << arr[i] << endl;
+    }
+}
+// void display1(int arr[5], int size) {}
+// void display2(int arr[], int size) {}
+// void display1(int *arr, int size) {}
+// void display1(int *arr[], int size) {}
 int main()
 {
-    int size;
-    cout << "please input size of array which you want : ";
-    cin >> size;
-    int arr1[size];
-    for (int i = 0; i < size; i++)
-    {
-        cout << "please input element " << i + 1 << " : ";
-        cin >> arr1[i];
-    }
-    for (int i = 0; i < size; i++)
-    {
-        cout << "index : " << i + 1 << " element : ";
-        cout << arr1[i] << endl;
-    }
-    // array 2D
-    int row, col;
-    cout << "input row of array : ";
-    cin >> row;
-    cout << "input col of array : ";
-    cin >> col;
-    int arr2[row][col];
-   
+    int row(3);
 
+    int *jaggedarray[row];
+    jaggedarray[0] = new int[3]{1, 2, 3};
+    jaggedarray[1] = new int[2]{4, 5};
+    jaggedarray[2] = new int[4]{6, 7, 8, 9};
+
+    for (int i = 0; i < row; i++)
+    {
+        // for (int j = 0; j < *(&jaggedarray[i] + 1) - jaggedarray[i]; j++)
+        for (int j = 0; j < (i == 0 ? 3 : (i == 1 ? 2 : 4)); j++)
+        {
+            cout << jaggedarray[i][j] << " ";
+        }
+    }
+
+    // int sizeofarray(5);
+    // int boxarray[sizeofarray]{1, 2, 3, 4, 5};
+    // displayarray(boxarray, sizeofarray);
     return 0;
 }

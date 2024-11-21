@@ -11,6 +11,6 @@ public:
     ~Dessert();
     void showDessert();
     int getPrice();
+    void setPrice(int);
 };
-
 #endif // DESSERT_H

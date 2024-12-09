@@ -1,3 +1,4 @@
+
 # ignore all file since root directory to all sub folder 
 *.exe 
 
@@ -27,3 +28,4 @@
 
 # ignore start this folder name
 # temp_*
+

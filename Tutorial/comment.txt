@@ -1,0 +1,17 @@
+// Basic data types in C++
+
+// Interger type : int ,short, long, long long,signed,unsigned
+
+// Floating point type : float, double, long double
+
+// Character type : char, wchar_t, char16_t, char32_t , unsigned char
+
+// Boolean type : bool
+
+// Void Type : void
+
+// intermediate data types : Enumerations(enum), Structures(struct), Pointer(*), Array([]), References(&), Typedefs(typedef), Unions(union)
+
+// Advanced data types : Classes, Templates, STL Containers, STL Algorithms, Smart Pointers, Iterators, Function Objects(functors), Lambda Expressions, 
+
+//Exception Handling, RTTI, Type Casting, Namespaces, Preprocessor Directives, File Handling, Multithreading, Sockets, Graphics, GUI, Database, Web Programming, Game Programming, Network Programming, Design Patterns, Data Structures, Algorithms, Cryptography, Security, Testing, Debugging, Logging, Optimization, Profiling, Memory Management, Performance, Scalability, Portability, Interoperability, Compatibility, Maintainability, Reusability, Extensibility, Flexibility, Robustness, Reliability, Availability, Integrity, Usability, Accessibility, Internationalization, Localization, Documentation, Licensing, Distribution, Deployment, Versioning, Migration, Integration, Configuration, Customization, Personalization, Serialization, Synchronization, Serialization, Validation, Transformation, Persistence, Serialization, Marshalling, Unmarshalling, Encoding, Decoding, Compression, Encryption, Decryption, Hashing, Salting, Signing, Verifying, Certifying, Authenticating, Authorizing, Auditing, Logging, Monitoring, Reporting, Alerting, Notifying, Messaging, Chatting, Emailing, Calling, Videoing, Streaming, Sharing, Collaborating, Socializing, Networking, Searching, Indexing, Ranking, Recommending, Filtering, Sorting

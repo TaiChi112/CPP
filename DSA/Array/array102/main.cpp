@@ -15,6 +15,12 @@ void displayarray(int arr[], int size)
 // void display1(int *arr[], int size) {}
 int main()
 {
+
+    int box0[1]{112};
+    int box1[3]{1, 2, 3};
+    int *box2[2]{box0, box1};
+    cout << box2[0][0] << endl;
+    cout << box2[1][1] << endl;
     int row(3);
 
     int *jaggedarray[row];

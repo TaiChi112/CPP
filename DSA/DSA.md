@@ -1,6 +1,6 @@
 # Data structure and algorithm
     - array
-    - link list
+    - linkedlist
     - queue
     - stack
     - hash table

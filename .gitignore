@@ -1,4 +1,31 @@
-output
-.vscode
-**/*.exe
-Archive.zip
+
+# ignore all file since root directory to all sub folder 
+*.exe 
+
+# ignore all files only root directory
+# /*.exe 
+
+# ignore all files in folder specific only you define not interest subfolder
+# folder/*.exe
+
+# ignore all file including folder specific & all subfolder you specific
+# folder/**/*.exe
+
+# ignore all files exception some file
+# *.exe
+# !important.exe
+
+# ignore all files exception some folder
+# *.exe
+# !include/*.exe
+
+# ignore all specific you folder name define root to subfolder
+# folder/
+
+# ignore all specific you folder name define root to subfolder but not include subfolder
+# folder/* 
+# !folder/*.exe
+
+# ignore start this folder name
+# temp_*
+

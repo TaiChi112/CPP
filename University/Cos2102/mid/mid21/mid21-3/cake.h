@@ -12,6 +12,7 @@ public:
     Cake();
     Cake(int,int,int,bool);
     ~Cake();
+    Cake addCake(Cake,Cake);
     void showCake();
     int getFlavor();
     int getType();

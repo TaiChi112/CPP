@@ -27,3 +27,64 @@
 
 # ignore start this folder name
 # temp_*
+
+# ไฟล์วัตถุ (.o) และไฟล์อื่น ๆ ที่เกิดจากการ Compile
+*.o
+*.obj
+*.lo
+*.la
+*.a
+*.so
+*.dll
+*.dylib
+
+# ไฟล์บันทึกการ Compile
+*.log
+
+# ไฟล์ที่สร้างโดย IDE
+*.swp
+*~
+*.tmp
+*.ide
+
+# ไฟล์ที่เกี่ยวข้องกับโปรเจกต์ CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# ไฟล์ที่สร้างจากการ Build
+/build/
+bin/
+lib/
+*.out
+
+# ไฟล์ชั่วคราวจากระบบ
+.DS_Store
+Thumbs.db
+
+# ไฟล์ที่สร้างโดย Visual Studio
+*.vcxproj*
+*.sln
+*.user
+*.filters
+
+# ไฟล์ที่เกี่ยวข้องกับ GDB/Debugging
+*.gch
+*.dSYM/
+*.core
+
+# ไฟล์ที่เกี่ยวกับ Git เอง
+.git/
+
+# ไฟล์บันทึกการทำงานของโปรแกรม
+*.log
+*.pid
+
+# ไฟล์อื่น ๆ ที่ควร Ignore
+.idea/
+.vscode/
+*.bak
+*.old
+*.pyc
+*.class

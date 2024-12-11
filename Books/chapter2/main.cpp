@@ -56,7 +56,6 @@ public:
 };
 class Student
 {
-    // Person person;
     int id;
     string firstname;
     string lastname;
@@ -65,50 +64,52 @@ class Student
     string faculty;
     string branch;
     double averageGrade;
+    int amountOfCourses;
 
 public:
     Student();
-    Student(int, string, string, string, int, string, string, double);
-    // Student(int, string, string, string, int, string, string, double);
+    Student(int, string, string, string, int, string, string, double, int);
     ~Student();
-    void set(int, string, string, string, int, string, string, double);
+    void set(int, string, string, string, int, string, string, double, int);
     int getStudentId();
     string getFaculty();
     string getBranch();
     double getAverageGrade();
+    void CalculateAverageGrade();
     void show();
 };
 int main()
 {
-    string name;
-    double x, y;
-    cout << endl;
-    cout << "Enter Point name : ";
-    cin >> name;
-    cout << "Enter x coordinate : ";
-    cin >> x;
-    cout << "Enter y coordinate : ";
-    cin >> y;
-    cout << endl;
-    Point p1, p2(name, x, y);
-    p1.show();
-    p2.show();
-    cout << endl;
-    cout << "amount object : " << Point::getCount() << endl;
-    cout << endl;
-    int width, length;
-    cout << "Enter width : ";
-    cin >> width;
-    cout << "Enter length : ";
-    cin >> length;
-    cout << endl;
-    Rectangle r1, r2(width, length);
-    r1.show();
-    cout << endl;
-    r2.show();
-    cout << endl;
-    cout << "amount object : " << Rectangle::getCount() << endl;
-    cout << endl;
+    // string name;
+    // double x, y;
+    // cout << endl;
+    // cout << "Enter Point name : ";
+    // cin >> name;
+    // cout << "Enter x coordinate : ";
+    // cin >> x;
+    // cout << "Enter y coordinate : ";
+    // cin >> y;
+    // cout << endl;
+    // Point p1, p2(name, x, y);
+    // p1.show();
+    // p2.show();
+    // cout << endl;
+    // cout << "amount object : " << Point::getCount() << endl;
+    // cout << endl;
+
+    // int width, length;
+    // cout << "Enter width : ";
+    // cin >> width;
+    // cout << "Enter length : ";
+    // cin >> length;
+    // cout << endl;
+    // Rectangle r1, r2(width, length);
+    // r1.show();
+    // cout << endl;
+    // r2.show();
+    // cout << endl;
+    // cout << "amount object : " << Rectangle::getCount() << endl;
+    // cout << endl;
 
     int id;
     string firstname, lastname, date;
@@ -128,6 +129,24 @@ int main()
     cout << endl;
     cout << "amount object : " << Person::getCount() << endl;
     cout << endl;
+
+    int studentId;
+    string faculty, branch;
+    double averageGrade(0.00), amountOfCourses;
+    cout << "Enter Student ID : ";
+    cin >> studentId;
+    cout << "Enter faculty : ";
+    cin >> faculty;
+    cout << "Enter branch : ";
+    cin >> branch;
+    cout << "Enter amount of courses : ";
+    cin >> amountOfCourses;
+    Student s1, s2(id, firstname, lastname, date, studentId, faculty, branch, averageGrade, amountOfCourses);
+    s2.CalculateAverageGrade();
+    cout << endl;
+    s1.show();
+    cout << endl;
+    s2.show();
     return 0;
 }
 Point::Point() : name("undefined"), x(0.0), y(0.0) { ++Point::count; }
@@ -211,10 +230,11 @@ void Person::show()
 int Person::count = 0;
 int Person::getCount() { return count; }
 
-Student::Student() : id(0), firstname("undefined"), lastname("undefined"), date("undefined"), studentId(0), faculty("undefined"), branch("undefined"), averageGrade(0.0) { set(id, firstname, lastname, date, studentId, faculty, branch, averageGrade); };
-Student::Student(int id, string firstname, string lastname, string date, int studentId, string faculty, string branch, double averageGrade) : id(id), firstname(firstname), lastname(lastname), date(date), studentId(studentId), faculty(faculty), branch(branch), averageGrade(averageGrade) { set(id, firstname, lastname, date, studentId, faculty, branch, averageGrade); };
+Student::Student() : id(0), firstname("undefined"), lastname("undefined"), date("undefined"), studentId(0), faculty("undefined"), branch("undefined"), averageGrade(0.0), amountOfCourses(0) { set(id, firstname, lastname, date, studentId, faculty, branch, averageGrade, amountOfCourses); };
+Student::Student(int id, string firstname, string lastname, string date, int studentId, string faculty, string branch, double averageGrade, int amountOfCourses) : id(id), firstname(firstname), lastname(lastname), date(date), studentId(studentId), faculty(faculty), branch(branch), averageGrade(averageGrade), amountOfCourses(amountOfCourses) { set(id, firstname, lastname, date, studentId, faculty, branch, averageGrade, amountOfCourses); };
 Student::~Student() { cout << "destructuring Student : " << firstname << endl; }
-void Student::set(int id, string firstname, string lastname, string date, int studentId, string faculty, string branch, double averageGrade){
+void Student::set(int id, string firstname, string lastname, string date, int studentId, string faculty, string branch, double averageGrade, int amountOfCourses)
+{
     this->id = id;
     this->firstname = firstname;
     this->lastname = lastname;
@@ -223,6 +243,7 @@ void Student::set(int id, string firstname, string lastname, string date, int st
     this->faculty = faculty;
     this->branch = branch;
     this->averageGrade = averageGrade;
+    this->amountOfCourses = amountOfCourses;
 }
 int Student::getStudentId() { return studentId; }
 string Student::getFaculty() { return faculty; }
@@ -231,16 +252,35 @@ double Student::getAverageGrade() { return averageGrade; }
 
 void Student::show()
 {
+    cout << "id: " << id << endl;
+    cout << "firstname: " << firstname << endl;
+    cout << "lastname: " << lastname << endl;
+    cout << "date: " << date << endl;
+    cout << "Student id: " << studentId << endl;
+    cout << "Faculty: " << faculty << endl;
+    cout << "Branch: " << branch << endl;
+    cout << "Average Grade: " << averageGrade << endl;
+    cout << "--------------" << endl;
+}
+void Student::CalculateAverageGrade()
+{
+    if (amountOfCourses <= 0)
     {
-        cout << "--------------" << endl;
-        cout << "id: " << id << endl;
-        cout << "firstname: " << firstname << endl;
-        cout << "lastname: " << lastname << endl;
-        cout << "date: " << date << endl;
-        cout << "Student id: " << studentId << endl;
-        cout << "Faculty: " << faculty << endl;
-        cout << "Branch: " << branch << endl;
-        cout << "Average Grade: " << averageGrade << endl;
-        cout << "--------------" << endl;
+        cout << "Invalid number of courses.\n";
+        return;
     }
+    double summation(0.0), grade(0.0);
+    for (int i = 0; i < amountOfCourses; i++)
+    {
+        cout << "Enter grade for course " << i + 1 << " : ";
+        cin >> grade;
+        if (grade < 0.0 || grade > 4.0)
+        {
+            cout << "Invalid grade! Please Enter a value between 0.0 and 4.0\n";
+            i--;
+            continue;
+        }
+        summation += grade;
+    }
+    averageGrade = summation / amountOfCourses;
 }

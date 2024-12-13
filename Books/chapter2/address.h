@@ -9,6 +9,7 @@ class Birthday
 public:
     Birthday();
     Birthday(int, int, int);
+    ~Birthday();
     int getDay();
     int getMonth();
     int getYear();
@@ -24,6 +25,7 @@ class IdentityCard
 public:
     IdentityCard();
     IdentityCard(int, string, string, Birthday);
+    ~IdentityCard();
     int getId();
     string getFirstname();
     string getLastname();
@@ -39,6 +41,8 @@ class Address
 public:
     Address();
     Address(IdentityCard, string, string, string);
+    ~Address();
+    IdentityCard getIdentityCard();
     string getStreet();
     string getCity();
     string getCountry();
@@ -46,26 +50,30 @@ public:
 };
 Birthday::Birthday() : day(0), month(0), year(0) {}
 Birthday::Birthday(int d, int m, int y) : day((d <= 31 ? d : 1)), month((m <= 12 ? m : 1)), year(y) {}
+Birthday::~Birthday() { cout << "desctructuring Birthday" << endl; }
 int Birthday::getDay() { return day; };
 int Birthday::getMonth() { return month; };
 int Birthday::getYear() { return year; };
 IdentityCard::IdentityCard() : birthday(), id(0), firstname(""), lastname("") {}
 IdentityCard::IdentityCard(int id, string fn, string ln, Birthday bd) : id(id), firstname(fn), lastname(ln), birthday(bd) {}
+IdentityCard::~IdentityCard() { cout << "desctructuring IdentityCard" << endl; }
 int IdentityCard::getId() { return id; }
 string IdentityCard::getFirstname() { return firstname; }
 string IdentityCard::getLastname() { return lastname; }
 Birthday IdentityCard::getBirthday() { return birthday; }
 Address::Address() : identityCard(), street(""), city(""), country("") {}
 Address::Address(IdentityCard idCard, string st, string c, string co) : identityCard(idCard), street(st), city(c), country(co) {}
+Address::~Address() { cout << "desctructuring Address" << endl; }
+IdentityCard Address::getIdentityCard() { return identityCard; }
 string Address::getStreet() { return street; }
 string Address::getCity() { return city; }
 string Address::getCountry() { return country; }
 void Address::display()
 {
     cout << "Identity Card Information: " << endl;
-    cout << "ID: " << identityCard.getId() << endl;
-    cout << "Name: " << identityCard.getFirstname() << " " << identityCard.getLastname() << endl;
-    cout << "Birthday: " << identityCard.getBirthday().getDay() << "/" << identityCard.getBirthday().getMonth() << "/" << identityCard.getBirthday().getYear() << endl;
+    cout << "ID: " << getIdentityCard().getId() << endl;
+    cout << "Name: " << getIdentityCard().getFirstname() << " " << getIdentityCard().getLastname() << endl;
+    cout << "Birthday: " << getIdentityCard().getBirthday().getDay() << "/" << getIdentityCard().getBirthday().getMonth() << "/" << getIdentityCard().getBirthday().getYear() << endl;
     cout << "Address Information: " << endl;
     cout << "Street: " << street << endl;
     cout << "City: " << city << endl;

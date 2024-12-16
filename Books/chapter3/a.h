@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef A_H
+#define A_H
 #include <iostream>
 using namespace std;
 
@@ -25,4 +25,4 @@ void Person::show()
     cout << "Name: " << this->name << endl;
 }
 
-#endif // MAIN_H
+#endif // A_H

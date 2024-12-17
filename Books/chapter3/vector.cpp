@@ -16,5 +16,7 @@ int main()
     v2.set(3, 40);
     v2.set(4, 50);
     v2.show();
+
+    cout << "Get element at index : " << v2.get(2) << endl;
     return 0;
 }

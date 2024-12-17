@@ -9,5 +9,12 @@ int main()
 
     Vector v2(5);
     v2.show();
+
+    v2.set(0, 10);
+    v2.set(1, 20);
+    v2.set(2, 30);
+    v2.set(3, 40);
+    v2.set(4, 50);
+    v2.show();
     return 0;
 }

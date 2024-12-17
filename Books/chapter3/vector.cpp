@@ -21,5 +21,9 @@ int main()
 
     v2.resize(7);
     v2.show();
+
+    v2.resize(3);
+    v2.show();
+
     return 0;
 }

@@ -18,5 +18,8 @@ int main()
     v2.show();
 
     cout << "Get element at index : " << v2.get(2) << endl;
+
+    v2.resize(7);
+    v2.show();
     return 0;
 }

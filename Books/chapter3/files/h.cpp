@@ -43,20 +43,39 @@ public:
         return data;
     }
 };
-class Counter{
+class Counter
+{
     int count;
-    public:
-    Counter():count(0){}
-    int getCount(){
+
+public:
+    Counter() : count(0) {}
+    Counter(int c) : count(c) {}
+    int getCount()
+    {
         return count;
     }
-    void operator++(){
+    void operator++()
+    {
         ++count;
     }
-    // void operator--(Counter &c){
-    //     count++;
+    Counter operator++(int)
+    { // prefix
+        ++count;
+        return *this;
+    }
+    // Counter operator++(int)
+    // { // postfix
+    //     return Counter(++count);
     // }
-
+    Counter operator++(int)
+    {
+        count++;
+        Counter temp(count);
+        return temp;
+        // temp.count = count;
+        // return temp;
+    }
+    operator double(){}
 };
 int main()
 {
@@ -67,10 +86,18 @@ int main()
     Object3 o4;
     o4.addObject(o1, o2);
     cout << "Data in Object4: " << o4.getData() << endl;
-    Counter c;
-    cout<<"Count: "<<c.getCount()<<endl;
-    ++c;
-    ++c;
-    cout<<"Count: "<<c.getCount()<<endl;
+    Counter c1;
+    cout << "Count: " << c1.getCount() << endl;
+    // ++c;
+    // ++c;
+    // cout << "Count: " << c.getCount() << endl;
+
+    Counter a, b, c, d, e;
+    // b = ++a;
+    c = a++;
+    a++;
+    cout << "a : " << a.getCount() << endl;
+    cout << "b : " << b.getCount() << endl;
+    cout << "c : " << c.getCount() << endl;
     return 0;
 }

@@ -90,12 +90,13 @@ void MyRect::show()
         {
             cout << "Reatangle at (" << i << ", " << j << "): " << endl;
             rects[i][j].show();
+
         }
     }
 }
 void MyRect::allocateArray()
 {
-    rects - new Rectangle *[rows];
+    rects = new Rectangle *[rows];
     for (int i(0); i < rows; i++)
     {
         rects[i] = new Rectangle[cols];

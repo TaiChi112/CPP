@@ -6,10 +6,7 @@ using namespace std;
 int main()
 {
     int width, length;
-    cout << "Enter width : ";
-    cin >> width;
-    cout << "Enter length : ";
-    cin >> length;
+    IRectangle(width, length);
     cout << endl;
     Rectangle r1, r2(width, length);
     r1.show();

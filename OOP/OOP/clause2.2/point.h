@@ -25,13 +25,16 @@ public:
 Point::Point() : name("undefined"), x(0.0), y(0.0)
 {
     ++Point::count;
-    (name, x, y);
 }
 Point::Point(string n, double xx, double yy) : name(n), x(xx), y(yy)
 {
-    set(name, x, y);
+    ++Point::count;
 }
-Point::~Point() { cout << "destructuring Point : " << getName() << "\n"; }
+Point::~Point()
+{
+    --Point::count;
+    cout << "Destructuring Point : " << getName() << "\n";
+}
 void Point::set(string n, double xx, double yy)
 {
     this->name = n;
@@ -46,7 +49,7 @@ double Point::getX() { return x; }
 double Point::getY() { return y; }
 void Point::show()
 {
-    cout << "Point : " << name << " is at (" << getX() << ", " << getY() << ")\n";
+    cout << "Point : " << getName() << " is at (" << getX() << ", " << getY() << ")\n";
 }
 int Point::count = 0;
 int Point::getCount() { return count; }

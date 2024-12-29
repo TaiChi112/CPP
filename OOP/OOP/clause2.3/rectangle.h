@@ -26,14 +26,16 @@ public:
 Rectangle::Rectangle() : width(0), length(0)
 {
     ++Rectangle::count;
-    set(width, length);
 }
 Rectangle::Rectangle(int w, int l) : width(w), length(l)
 {
     ++Rectangle::count;
-    set(width, length);
 }
-Rectangle::~Rectangle() { cout << "destructuring Rectangle\n"; }
+Rectangle::~Rectangle()
+{
+    --Rectangle::count;
+    cout << "destructuring Rectangle\n";
+}
 void Rectangle::set(int w, int l)
 {
     width = w;
@@ -51,7 +53,7 @@ void Rectangle::show()
 {
     cout << "Rectangle : (" << getWidth() << ", " << getLength() << ") ";
     cout << "Area : " << findArea(getWidth(), getLength()) << " : ";
-    cout << "Border : " << findCircumference(getWidth(), getLength()) << endl;
+    cout << "Circumference : " << findCircumference(getWidth(), getLength()) << endl;
 }
 int Rectangle::count = 0;
 int Rectangle::getCount() { return count; }

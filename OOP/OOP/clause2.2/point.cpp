@@ -36,7 +36,7 @@ int main()
     p1.show();
     cout << endl;
 
-    cout << "get amount of object : " << Point::getCount() << endl;
+    cout << "get amount of object after create object succsessfully  : " << Point::getCount() << endl;
     cout << endl;
     return 0;
 }

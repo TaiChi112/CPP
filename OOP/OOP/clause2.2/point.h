@@ -13,9 +13,12 @@ public:
     Point(string, double, double);
     ~Point();
     void set(string, double, double);
+    void setName(string);
+    void setX(double);
+    void setY(double);
     string getName();
-    int getX();
-    int getY();
+    double getX();
+    double getY();
     void show();
     static int getCount();
 };
@@ -35,9 +38,12 @@ void Point::set(string n, double xx, double yy)
     this->x = xx;
     this->y = yy;
 }
+void Point::setName(string n) { name = n; }
+void Point::setX(double xx) { x = xx; }
+void Point::setY(double yy) { y = yy; }
 string Point::getName() { return name; }
-int Point::getX() { return x; }
-int Point::getY() { return y; }
+double Point::getX() { return x; }
+double Point::getY() { return y; }
 void Point::show()
 {
     cout << "Point : " << name << " is at (" << getX() << ", " << getY() << ")\n";

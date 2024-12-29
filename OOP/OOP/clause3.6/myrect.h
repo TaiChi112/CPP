@@ -12,10 +12,14 @@ public:
     Rectangle(int, int);
     ~Rectangle();
     void set(int, int);
+    void setWidth(int);
+    void setLength(int);
+    int findCircumference(int, int);
+    int findArea(int, int);
     int getWidth();
     int getLength();
-    int areaReatangle(int, int);
-    int circumference(int, int);
+    int getArea();
+    int getCircumference();
     void show();
     static int getCount();
 };
@@ -35,15 +39,19 @@ void Rectangle::set(int w, int l)
     width = w;
     length = l;
 }
+void Rectangle::setWidth(int w) { width = w; }
+void Rectangle::setLength(int l) { length = l; }
 int Rectangle::getWidth() { return width; }
 int Rectangle::getLength() { return length; }
-int Rectangle::areaReatangle(int w, int l) { return w * l; }
-int Rectangle::circumference(int w, int l) { return 2 * (w + l); }
+int Rectangle::findArea(int w, int l) { return w * l; }
+int Rectangle::findCircumference(int w, int l) { return 2 * (w + l); }
+int Rectangle::getArea() { return findArea(width, length); }
+int Rectangle::getCircumference() { return findCircumference(width, length); }
 void Rectangle::show()
 {
-    cout << "Rectangle : (" << getWidth() << ", " << getLength() << ") : ";
-    cout << "Area : " << areaReatangle(getWidth(), getLength()) << " : ";
-    cout << "Circumference : " << circumference(getWidth(), getLength()) << endl;
+    cout << "Rectangle : (" << getWidth() << ", " << getLength() << ") ";
+    cout << "Area : " << findArea(getWidth(), getLength()) << " : ";
+    cout << "Circumference : " << findCircumference(getWidth(), getLength()) << endl;
 }
 int Rectangle::count = 0;
 int Rectangle::getCount() { return count; }
@@ -61,6 +69,10 @@ public:
     ~MyRect();
     void reset(int, int);
     void setRect(int, int, int, int);
+    void setRow(int);
+    void setCol(int);
+    int getRow();
+    int getCol();
     Rectangle getRect(int, int);
     void show();
 };
@@ -85,6 +97,10 @@ void MyRect::setRect(int row, int col, int width, int length)
         cout << "Index out of bounds." << endl;
     }
 }
+void MyRect::setRow(int r) { rows = r; }
+void MyRect::setCol(int c) { cols = c; }
+int MyRect::getRow() { return rows; }
+int MyRect::getCol() { return cols; }
 Rectangle MyRect::getRect(int row, int col)
 {
     if (row >= 0 && row < rows && col >= 0 && col < cols)

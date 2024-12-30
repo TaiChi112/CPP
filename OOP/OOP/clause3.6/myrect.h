@@ -72,7 +72,7 @@ public:
     MyRect(int, int);
     ~MyRect();
     void reset(int, int);
-    void setRect(int, int, int, int);
+    void setRect(int, int, Rectangle &);
     int getRow();
     int getCol();
     Rectangle getRect(int, int);
@@ -86,16 +86,19 @@ MyRect::~MyRect()
 }
 void MyRect::reset(int newRows, int newCols)
 {
+    cout << "You are reset size is be : " << newRows << " : " << newCols << endl;
+    cout << endl;
     deallocateArray();
     rows = newRows;
     cols = newCols;
     allocateArray();
 }
-void MyRect::setRect(int row, int col, int width, int length)
+
+void MyRect::setRect(int row, int col, Rectangle &rect)
 {
     if (row >= 0 && row < rows && col >= 0 && col < cols)
     {
-        rects[row][col].set(width, length); // access set method from Rectangle class
+        rects[row][col] = rect;
     }
     else
     {

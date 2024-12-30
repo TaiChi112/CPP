@@ -72,6 +72,7 @@ public:
     MyRect(int, int);
     ~MyRect();
     void reset(int, int);
+    void setRect(int,int,int,int);
     void setRect(int, int, Rectangle &);
     int getRow();
     int getCol();
@@ -93,7 +94,17 @@ void MyRect::reset(int newRows, int newCols)
     cols = newCols;
     allocateArray();
 }
-
+void MyRect::setRect(int row, int col, int width, int length)
+{
+    if (row >= 0 && row < rows && col >= 0 && col < cols)
+    {
+        rects[row][col].set(width, length);
+    }
+    else
+    {
+        cout << "Index out of bounds." << endl;
+    }
+}
 void MyRect::setRect(int row, int col, Rectangle &rect)
 {
     if (row >= 0 && row < rows && col >= 0 && col < cols)

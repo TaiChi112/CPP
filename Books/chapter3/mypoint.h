@@ -1,37 +1,8 @@
 #ifndef MYPOINT_H
 #define MYPOINT_H
 #include <iostream>
+#include "../chapter2/point.h"
 using namespace std;
-class Point
-{
-    static int count;
-    string name;
-    double x, y;
-
-public:
-    Point() : name(""), x(0), y(0) { count++; }
-    Point(string name, double x, double y) : name(name), x(x), y(y) { count++; }
-    ~Point() { count--; }
-
-    void set(string name, double x, double y)
-    {
-        this->name = name;
-        this->x = x;
-        this->y = y;
-    }
-
-    double getX() { return x; }
-    double getY() { return y; }
-
-    void show()
-    {
-        cout << "Point(" << name << "): (" << x << ", " << y << ")" << endl;
-    }
-
-    static int getCount() { return count; }
-};
-
-int Point::count = 0;
 
 class MyPoint
 {

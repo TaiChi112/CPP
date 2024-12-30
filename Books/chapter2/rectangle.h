@@ -47,4 +47,11 @@ void Rectangle::show()
 }
 int Rectangle::count = 0;
 int Rectangle::getCount() { return count; }
+void IRectangle(int &width, int &length)
+{
+    cout << "Enter width : ";
+    cin >> width;
+    cout << "Enter length : ";
+    cin >> length;
+}
 #endif // RECTANGLE_H

@@ -15,27 +15,31 @@ class Person
 
 public:
     Person();
-    Person(int, string, string, Date, Address);
+    Person(int, string, string, Date &, Address &);
     ~Person();
-    void set(int, string, string, Date, Address);
+    void set(int, string, string, Date &, Address &);
     int getId();
     string getFirstname();
     string getLastname();
+    Date &getDate();
+    Address &getAddress();
     void show();
     static int getCount();
 };
 Person::Person() : id(0), firstname("undefined"), lastname("undefined"), date(00, 00, 0000), address("undefined", "undefined", "undefined")
 {
-    set(id, firstname, lastname, date, address);
     ++Person::count;
 };
-Person::Person(int id, string firstname, string lastname, Date date, Address address) : id(id), firstname(firstname), lastname(lastname), date(date), address(address)
+Person::Person(int id, string firstname, string lastname, Date &date, Address &address) : id(id), firstname(firstname), lastname(lastname), date(date), address(address)
 {
-    set(id, firstname, lastname, date, address);
     ++Person::count;
 };
-Person::~Person() { cout << "Destructuring Person : " << getId() << " : " << getFirstname() << " : " << getLastname() << endl; }
-void Person::set(int id, string firstname, string lastname, Date date, Address address)
+Person::~Person()
+{
+    --Person::count;
+    cout << "Destructuring Person : " << getId() << " : " << getFirstname() << " : " << getLastname() << endl;
+}
+void Person::set(int id, string firstname, string lastname, Date &date, Address &address)
 {
     this->id = id;
     this->firstname = firstname;
@@ -46,6 +50,8 @@ void Person::set(int id, string firstname, string lastname, Date date, Address a
 int Person::getId() { return id; }
 string Person::getFirstname() { return firstname; }
 string Person::getLastname() { return lastname; }
+Date &Person::getDate() { return date; }
+Address &Person::getAddress() { return address; }
 void Person::show()
 {
     cout << "ID : " << id << endl;
@@ -70,13 +76,5 @@ void IPerson(int &personId, string &firstname, string &lastname, Date &date, Add
     cout << "\nAddress: ";
     address.IAddress();
 }
-// void OPerson(int &personId, string &firstname, string &lastname, Date &date, Address &address)
-// {
-//     cout << "ID : " << personId << endl;
-//     cout << "Firstname : " << firstname << endl;
-//     cout << "Lastname : " << lastname << endl;
-//     date.show();
-//     address.show();
-// }
 
 #endif // PERSON_H

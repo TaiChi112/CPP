@@ -10,5 +10,20 @@ int main()
     d1.show();
     cout << endl;
     d2.show();
+    cout << endl;
+
+    cout << "Try to set new Date for ad1 object" << endl;
+    cout << endl;
+    d1.set(29, 05, 2004);
+    d1.show();
+    cout << endl;
+
+    cout << "Try to get attribute of ad1 object" << endl;
+    cout << endl;
+    cout << "Day: " << d1.getDay() << endl;
+    cout << "Month: " << d1.getMonth() << endl;
+    cout << "Year: " << d1.getYear() << endl;
+    cout << endl;
+
     return 0;
 }

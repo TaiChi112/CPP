@@ -12,8 +12,6 @@ public:
     Rectangle(int, int);
     ~Rectangle();
     void set(int, int);
-    void setWidth(int);
-    void setLength(int);
     int findCircumference(int, int);
     int findArea(int, int);
     int getWidth();
@@ -26,21 +24,21 @@ public:
 Rectangle::Rectangle() : width(0), length(0)
 {
     ++Rectangle::count;
-    set(width, length);
 }
 Rectangle::Rectangle(int w, int l) : width(w), length(l)
 {
     ++Rectangle::count;
-    set(width, length);
 }
-Rectangle::~Rectangle() { cout << "destructuring Rectangle\n"; }
+Rectangle::~Rectangle()
+{
+    --Rectangle::count;
+    cout << "destructuring Rectangle\n";
+}
 void Rectangle::set(int w, int l)
 {
     width = w;
     length = l;
 }
-void Rectangle::setWidth(int w) { width = w; }
-void Rectangle::setLength(int l) { length = l; }
 int Rectangle::getWidth() { return width; }
 int Rectangle::getLength() { return length; }
 int Rectangle::findArea(int w, int l) { return w * l; }
@@ -69,8 +67,6 @@ public:
     ~MyRect();
     void reset(int, int);
     void setRect(int, int, int, int);
-    void setRow(int);
-    void setCol(int);
     int getRow();
     int getCol();
     Rectangle getRect(int, int);
@@ -78,7 +74,10 @@ public:
 };
 MyRect::MyRect() : rects(nullptr), rows(0), cols(0) {}
 MyRect::MyRect(int r, int c) : rows(r), cols(c) { allocateArray(); }
-MyRect::~MyRect() { deallocateArray(); }
+MyRect::~MyRect()
+{
+    deallocateArray();
+}
 void MyRect::reset(int newRows, int newCols)
 {
     deallocateArray();
@@ -97,8 +96,6 @@ void MyRect::setRect(int row, int col, int width, int length)
         cout << "Index out of bounds." << endl;
     }
 }
-void MyRect::setRow(int r) { rows = r; }
-void MyRect::setCol(int c) { cols = c; }
 int MyRect::getRow() { return rows; }
 int MyRect::getCol() { return cols; }
 Rectangle MyRect::getRect(int row, int col)

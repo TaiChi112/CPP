@@ -15,7 +15,7 @@ class Person
 
 public:
     Person();
-    Person(int, string, string, Date &, Address &);
+    Person(int, const string &, const string &, const Date &, const Address &);
     ~Person();
     void set(int, string, string, Date &, Address &);
     int getId();
@@ -30,7 +30,7 @@ Person::Person() : id(0), firstname("undefined"), lastname("undefined"), date(00
 {
     ++Person::count;
 };
-Person::Person(int id, string firstname, string lastname, Date &date, Address &address) : id(id), firstname(firstname), lastname(lastname), date(date), address(address)
+Person::Person(int id, const string &firstname, const string &lastname, const Date &date,const Address &address) : id(id), firstname(firstname), lastname(lastname), date(date), address(address)
 {
     ++Person::count;
 };

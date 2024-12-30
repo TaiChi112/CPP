@@ -13,9 +13,6 @@ public:
     Point(string, double, double);
     ~Point();
     void set(string, double, double);
-    void setName(string);
-    void setX(double);
-    void setY(double);
     string getName();
     double getX();
     double getY();
@@ -24,10 +21,12 @@ public:
     double dot(Point &p);
     static Point midpoint(Point &p1, Point &p2);
 };
-Point::Point() : name("undefined"), x(0.0), y(0.0) { ++Point::count; }
+Point::Point() : name("undefined"), x(0.0), y(0.0)
+{
+    ++Point::count;
+}
 Point::Point(string n, double xx, double yy) : name(n), x(xx), y(yy)
 {
-    set(name, x, y);
     ++Point::count;
 }
 Point::~Point()
@@ -43,9 +42,6 @@ void Point::set(string n, double xx, double yy)
     this->x = xx;
     this->y = yy;
 }
-void Point::setName(string n) { name = n; }
-void Point::setX(double xx) { x = xx; }
-void Point::setY(double yy) { y = yy; }
 string Point::getName() { return name; }
 double Point::getX() { return x; }
 double Point::getY() { return y; }

@@ -28,9 +28,7 @@ int main()
 
     cout << "try to set attribute of object p1 : " << endl;
     cout << endl;
-    p1.setName("A");
-    p1.setX(6.0);
-    p1.setY(7.0);
+    p1.set("A", 1.0, 2.0);
     p1.show();
 
     string name1("C");

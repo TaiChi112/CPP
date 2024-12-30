@@ -8,6 +8,8 @@ int main()
     int row(2), col(2);
     MyRect mr(row, col);
     int width, length;
+    cout << "Use set Rect default No parameter" << endl;
+    mr.setRect();
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < col; j++)

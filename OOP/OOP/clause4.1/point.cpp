@@ -43,6 +43,7 @@ int main()
     p4.show();
     cout << "Point A & Point B Dot product : " << p3.dot(p4) << endl;
     cout << endl;
+
     Point mid = Point::midpoint(p3, p4);
     mid.show();
     cout << endl;

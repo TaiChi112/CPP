@@ -21,10 +21,12 @@ public:
     double dot(Point &p);
     static Point midpoint(Point &p1, Point &p2);
 };
-Point::Point() : name("undefined"), x(0.0), y(0.0) { ++Point::count; }
+Point::Point() : name("undefined"), x(0.0), y(0.0)
+{
+    ++Point::count;
+}
 Point::Point(string n, double xx, double yy) : name(n), x(xx), y(yy)
 {
-    set(name, x, y);
     ++Point::count;
 }
 Point::~Point()
@@ -45,7 +47,15 @@ double Point::getX() { return x; }
 double Point::getY() { return y; }
 void Point::show()
 {
-    cout << "Point : " << getName() << " is at (" << getX() << ", " << getY() << ")\n";
+    cout << "Point : " << name << " is at (" << getX() << ", " << getY() << ")\n";
 }
 
+double Point::dot(Point &p) { return (this->x * p.x) + (this->y * p.y); }
+
+Point Point::midpoint(Point &p1, Point &p2)
+{
+    double midX = (p1.x + p2.x) / 2.0;
+    double midY = (p1.y + p2.y) / 2.0;
+    return Point("Midpoint", midX, midY);
+}
 #endif // POINT_H

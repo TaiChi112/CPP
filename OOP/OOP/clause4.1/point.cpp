@@ -46,7 +46,8 @@ int main()
     cout << "Point A & Point B Dot product : " << p3.dot(p4) << endl;
     cout << endl;
 
-    Point mid = p3.midpoint(p4);
+    Point object;
+    Point mid = object.midpoint(p3, p4);
     cout << "Midpoint of Point A & Point B : ";
     mid.show();
     cout << endl;

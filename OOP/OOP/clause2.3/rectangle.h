@@ -12,6 +12,8 @@ public:
     Rectangle(int, int);
     ~Rectangle();
     void set(int, int);
+    void setWidth(int);
+    void setLength(int);
     int findCircumference();
     int findArea();
     int getWidth();
@@ -37,6 +39,8 @@ void Rectangle::set(int w, int l)
     width = w;
     length = l;
 }
+void Rectangle::setWidth(int w) { width = w; }
+void Rectangle::setLength(int l) { length = l; }
 int Rectangle::getWidth() { return width; }
 int Rectangle::getLength() { return length; }
 int Rectangle::findCircumference()

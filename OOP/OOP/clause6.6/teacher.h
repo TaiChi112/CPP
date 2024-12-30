@@ -13,30 +13,25 @@ class Teacher : virtual public Person
 
 public:
     Teacher();
-    Teacher(int, string, string, Date, Address, int, string, double);
+    Teacher(Person &, Date &, Address &, int, string, double);
     ~Teacher();
-    void set(int, string, double);
+    void set(Person &, int, string, double);
     int getTeacherId();
     string getSubject();
     double getSalary();
     void show();
 };
-Teacher::Teacher() : Person(), teacherId(0), subject("Unknow"), salary(0.0)
-{
-    set(teacherId, subject, salary);
-};
+Teacher::Teacher() : Person(), teacherId(0), subject("Unknown"), salary(0.0) {};
 
-Teacher::Teacher(int id, string firstname, string lastname, Date date, Address address, int teacherId, string subject, double salary) : Person(id, firstname, lastname, date, address), teacherId(teacherId), subject(subject), salary(salary)
-{
-    set(teacherId, subject, salary);
-};
+Teacher::Teacher(Person &person, Date &date, Address &address, int teacherId, string subject, double salary) : Person(person), teacherId(teacherId), subject(subject), salary(salary) {};
 
 Teacher::~Teacher() { cout << "destructuring Teacher : " << getTeacherId() << " : " << getSubject() << " : " << getSalary() << endl; }
-void Teacher::set(int id, string subject, double sal)
+void Teacher::set(Person &person, int teacherId, string subject, double salary)
 {
-    teacherId = id;
+    Person::set(person.getId(), person.getFirstname(), person.getLastname(), person.getDate(), person.getAddress());
+    this->teacherId = teacherId;
     this->subject = subject;
-    salary = sal;
+    this->salary = salary;
 }
 
 int Teacher::getTeacherId() { return teacherId; }

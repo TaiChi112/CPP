@@ -14,12 +14,10 @@ public:
     void set(int, int);
     void setWidth(int);
     void setLength(int);
-    int findCircumference(int, int);
-    int findArea(int, int);
+    int findCircumference();
+    int findArea();
     int getWidth();
     int getLength();
-    int getArea();
-    int getCircumference();
     void show();
     static int getCount();
 };
@@ -45,15 +43,19 @@ void Rectangle::setWidth(int w) { width = w; }
 void Rectangle::setLength(int l) { length = l; }
 int Rectangle::getWidth() { return width; }
 int Rectangle::getLength() { return length; }
-int Rectangle::findArea(int w, int l) { return w * l; }
-int Rectangle::findCircumference(int w, int l) { return 2 * (w + l); }
-int Rectangle::getArea() { return findArea(width, length); }
-int Rectangle::getCircumference() { return findCircumference(width, length); }
+int Rectangle::findCircumference()
+{
+    return 2 * (width + length);
+}
+int Rectangle::findArea()
+{
+    return width * length;
+}
 void Rectangle::show()
 {
     cout << "Rectangle : (" << getWidth() << ", " << getLength() << ") ";
-    cout << "Area : " << findArea(getWidth(), getLength()) << " : ";
-    cout << "Circumference : " << findCircumference(getWidth(), getLength()) << endl;
+    cout << "Area : " << findArea() << " : ";
+    cout << "Circumference : " << findCircumference() << endl;
 }
 int Rectangle::count = 0;
 int Rectangle::getCount() { return count; }

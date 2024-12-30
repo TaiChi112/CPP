@@ -11,23 +11,23 @@ class TeacherAssistance : public Teacher, public Student
 
 public:
     TeacherAssistance();
-    TeacherAssistance(int, string, string, Date, Address, int, string, double, int, string, string, int, int, int);
+    TeacherAssistance(Person &person, Teacher &teacher, Student &student, int taId, int experience);
     ~TeacherAssistance();
-    void set(int, int);
+    void set(Teacher &teacher, Student &student, int teacherAssistanceId, int experience);
     int getTeacherAssistanceId();
     int getExperience();
     void show();
 };
-TeacherAssistance::TeacherAssistance() : Teacher(), Student(), teacherAssistanceId(0), experience(0) { set(teacherAssistanceId, experience); }
-TeacherAssistance::TeacherAssistance(int personId, string firstname, string lastname, Date date, Address address, int teacherId, string subject, double salary, int studentId, string faculty, string branch, int amountOfCourses, int teacherAssistanceId, int experience) : Person(personId, firstname, lastname, date, address), Teacher(personId, firstname, lastname, date, address, teacherId, subject, salary), Student(personId, firstname, lastname, date, address, studentId, faculty, branch, amountOfCourses), teacherAssistanceId(teacherAssistanceId), experience(experience)
-{
-    set(teacherAssistanceId, experience);
-}
+TeacherAssistance::TeacherAssistance() : Person(), Teacher(), Student(), teacherAssistanceId(0), experience(0) {}
+TeacherAssistance::TeacherAssistance(Person &person, Teacher &teacher, Student &student, int taId, int experience) : Person(person), Teacher(teacher), Student(student), teacherAssistanceId(taId), experience(experience) {}
+
 TeacherAssistance::~TeacherAssistance() { cout << "destructuring Teacher Assistance : " << getTeacherAssistanceId() << " : " << getExperience() << endl; }
-void TeacherAssistance::set(int teacherAssistanceId, int experience)
+void TeacherAssistance::set(Teacher &teacher, Student &student, int teacherAssistanceId, int experience)
 {
-    teacherAssistanceId = teacherAssistanceId;
-    experience = experience;
+    Teacher::set(teacher.getTeacherId(), teacher.getSubject(), teacher.getSalary());
+    Student::set(student.getStudentId(), student.getFaculty(), student.getBranch(), student.getAmountOfCourses());
+    this->teacherAssistanceId = teacherAssistanceId;
+    this->experience = experience;
 }
 
 int TeacherAssistance::getTeacherAssistanceId()
@@ -42,6 +42,7 @@ int TeacherAssistance::getExperience()
 
 void TeacherAssistance::show()
 {
+    cout << "Teacher Asssistance Informaion : " << endl;
     Person::show();
 
     cout << "\n[Teacher Details]\n";

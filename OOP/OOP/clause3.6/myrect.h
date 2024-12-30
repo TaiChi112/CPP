@@ -12,12 +12,12 @@ public:
     Rectangle(int, int);
     ~Rectangle();
     void set(int, int);
-    int findCircumference(int, int);
-    int findArea(int, int);
+    void setWidth(int);
+    void setLength(int);
+    int findCircumference();
+    int findArea();
     int getWidth();
     int getLength();
-    int getArea();
-    int getCircumference();
     void show();
     static int getCount();
 };
@@ -39,17 +39,23 @@ void Rectangle::set(int w, int l)
     width = w;
     length = l;
 }
+void Rectangle::setWidth(int w) { width = w; }
+void Rectangle::setLength(int l) { length = l; }
 int Rectangle::getWidth() { return width; }
 int Rectangle::getLength() { return length; }
-int Rectangle::findArea(int w, int l) { return w * l; }
-int Rectangle::findCircumference(int w, int l) { return 2 * (w + l); }
-int Rectangle::getArea() { return findArea(width, length); }
-int Rectangle::getCircumference() { return findCircumference(width, length); }
+int Rectangle::findCircumference()
+{
+    return 2 * (width + length);
+}
+int Rectangle::findArea()
+{
+    return width * length;
+}
 void Rectangle::show()
 {
     cout << "Rectangle : (" << getWidth() << ", " << getLength() << ") ";
-    cout << "Area : " << findArea(getWidth(), getLength()) << " : ";
-    cout << "Circumference : " << findCircumference(getWidth(), getLength()) << endl;
+    cout << "Area : " << findArea() << " : ";
+    cout << "Circumference : " << findCircumference() << endl;
 }
 int Rectangle::count = 0;
 int Rectangle::getCount() { return count; }
@@ -66,7 +72,8 @@ public:
     MyRect(int, int);
     ~MyRect();
     void reset(int, int);
-    void setRect(int, int, int, int);
+    void setRect(int,int,int,int);
+    void setRect(int, int, Rectangle &);
     int getRow();
     int getCol();
     Rectangle getRect(int, int);
@@ -80,6 +87,8 @@ MyRect::~MyRect()
 }
 void MyRect::reset(int newRows, int newCols)
 {
+    cout << "You are reset size is be : " << newRows << " : " << newCols << endl;
+    cout << endl;
     deallocateArray();
     rows = newRows;
     cols = newCols;
@@ -89,7 +98,18 @@ void MyRect::setRect(int row, int col, int width, int length)
 {
     if (row >= 0 && row < rows && col >= 0 && col < cols)
     {
-        rects[row][col].set(width, length); // access set method from Rectangle class
+        rects[row][col].set(width, length);
+    }
+    else
+    {
+        cout << "Index out of bounds." << endl;
+    }
+}
+void MyRect::setRect(int row, int col, Rectangle &rect)
+{
+    if (row >= 0 && row < rows && col >= 0 && col < cols)
+    {
+        rects[row][col] = rect;
     }
     else
     {

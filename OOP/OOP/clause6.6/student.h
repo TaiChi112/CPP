@@ -14,9 +14,9 @@ class Student : virtual public Person
 
 public:
     Student();
-    Student(int, string, string, Date, Address, int, string, string, int);
+    Student(Person&, Date &, Address &, int, string, string, int);
     ~Student();
-    void set(int, string, string, int);
+    void set(Person&, int, string, string, int);
     int getStudentId();
     string getFaculty();
     string getBranch();
@@ -25,25 +25,19 @@ public:
     void CalculateAverageGrade();
     void show();
 };
-Student::Student() : Person(), studentId(0), faculty("undefined"), branch("undefined"), amountOfCourses(0)
-{
-    set(studentId, faculty, branch, amountOfCourses);
-};
-Student::Student(int personId, string firstname, string lastname, Date date, Address address, int studentId, string faculty, string branch, int amountOfCourses) : Person(personId, firstname, lastname, date, address), studentId(studentId), faculty(faculty), branch(branch), amountOfCourses(amountOfCourses)
-{
-    set(studentId, faculty, branch, amountOfCourses);
-};
+Student::Student() : Person(), studentId(0), faculty("undefined"), branch("undefined"), amountOfCourses(0), averageGrade(0.0) {};
+Student::Student(Person &p, Date &date, Address &address, int studentId, string faculty, string branch, int amountOfCourses) : Person(p), studentId(studentId), faculty(faculty), branch(branch), amountOfCourses(amountOfCourses), averageGrade(0.0) {};
 Student::~Student()
 {
     cout << "destructuring Student : " << getStudentId() << " : " << getFaculty() << " : " << getBranch() << endl;
 }
-
-void Student::set(int studentId, string faculty, string branch, int amountOfCourses)
+void Student::set(Person &p, int studentId, string faculty, string branch, int amountOfCourses)
 {
-    studentId = studentId;
-    faculty = faculty;
-    branch = branch;
-    amountOfCourses = amountOfCourses;
+    Person::set(p.getId(), p.getFirstname(), p.getLastname(), p.getDate(), p.getAddress());
+    this->studentId = studentId;
+    this->faculty = faculty;
+    this->branch = branch;
+    this->amountOfCourses = amountOfCourses;
 }
 int Student::getStudentId()
 {
@@ -110,28 +104,5 @@ void IStudent(int &studentId, string &faculty, string &branch, int &amountOfCour
     cin >> amountOfCourses;
     cout << "--------------" << endl;
 }
-// void Student::set(int id, string firstname, string lastname, string date, int studentId, string faculty, string branch, double averageGrade, int amountOfCourses)
-// {
-//     this->id = id;
-//     this->firstname = firstname;
-//     this->lastname = lastname;
-//     this->date = date;
-//     this->studentId = studentId;
-//     this->faculty = faculty;
-//     this->branch = branch;
-//     this->averageGrade = averageGrade;
-//     this->amountOfCourses = amountOfCourses;
-// }
-// void Student::show() // original
-// {
-//     cout << "id: " << id << endl;
-//     cout << "firstname: " << firstname << endl;
-//     cout << "lastname: " << lastname << endl;
-//     cout << "date: " << date << endl;
-//     cout << "Student id: " << studentId << endl;
-//     cout << "Faculty: " << faculty << endl;
-//     cout << "Branch: " << branch << endl;
-//     cout << "Average Grade: " << averageGrade << endl;
-//     cout << "--------------" << endl;
-// }
+
 #endif // STUDENT_H

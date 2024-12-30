@@ -55,6 +55,10 @@ double Point::dot(Point &p) { return (this->x * p.x) + (this->y * p.y); }
 Point Point::midpoint(Point &p1, Point &p2) {
     double midX = (p1.x + p2.x) / 2.0;
     double midY = (p1.y + p2.y) / 2.0;
+
+    this->name = "Midpoint";
+    this->x = midX;
+    this->y = midY;
     return Point("Midpoint", midX, midY);
 }
 #endif // POINT_H

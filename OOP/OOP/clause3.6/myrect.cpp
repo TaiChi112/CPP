@@ -25,6 +25,23 @@ int main()
     mr.show();
     cout << endl;
 
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cout << "Enter data for rectangle at position  " << i << " " << j << endl;
+            cout << "Enter width : ";
+            cin >> width;
+            cout << "Enter length : ";
+            cin >> length;
+            Rectangle rect(width, length);
+            mr.setRect(i, j, width, length);
+        }
+    }
+    cout << endl;
+    mr.show();
+    cout << endl;
+
     cout << "Try to reset My Rectangle" << endl;
     cout << endl;
     int newRow(1), newCol(1);

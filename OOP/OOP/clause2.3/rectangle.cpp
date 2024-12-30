@@ -19,10 +19,12 @@ int main()
     cout << endl;
 
     // set attribute of object r1
-    
+
     cout << "try to set attribute of object r1 : " << endl;
     cout << endl;
     r1.set(10, 20);
+    r1.setWidth(10);
+    r1.setLength(20);
     r1.show();
     cout << endl;
 

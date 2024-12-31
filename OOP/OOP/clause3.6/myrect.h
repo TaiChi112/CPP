@@ -72,7 +72,8 @@ public:
     MyRect(int, int);
     ~MyRect();
     void reset(int, int);
-    void setRect(int,int,int,int);
+    void setRect();
+    void setRect(int, int, int, int);
     void setRect(int, int, Rectangle &);
     int getRow();
     int getCol();
@@ -93,6 +94,22 @@ void MyRect::reset(int newRows, int newCols)
     rows = newRows;
     cols = newCols;
     allocateArray();
+}
+void MyRect::setRect()
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            cout << "Enter width and length for rectangle at index (" << i << ", " << j << ") : ";
+            int width, length;
+            cout << "Enter width : ";
+            cin >> width;
+            cout << "Enter lenght : ";
+            cin >> length;
+            rects[i][j].set(width, length);
+        }
+    }
 }
 void MyRect::setRect(int row, int col, int width, int length)
 {

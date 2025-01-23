@@ -1,0 +1,31 @@
+- สร้าง class
+  - Cooking
+    - fields:
+      - Time time
+  - Grill
+    - fields:
+      - string stove_type
+  - Fry
+    - fields:
+      - bool is_oil
+  - Meat
+    - fields:
+      - bool is_organic
+  - Pork
+    - fields:
+      - int type_pork
+  - Chicken
+    - fields:
+      - int type_chicken
+  - Food
+    - fields:
+      - double price
+      - string dish_name
+      - Cooking *cooking
+      - Meat **meat
+      - int size
+  - Order
+    - fields:
+      - Food *food
+      - int size;
+      - bool is_member

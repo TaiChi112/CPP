@@ -29,3 +29,19 @@
       - Food *food
       - int size;
       - bool is_member
+
+- กำหนดให้ class Cooking Meat เป็น abstract class
+  - กำหนดให้ function show เป็น pure virtual function
+
+- Relation of class
+  - Cooking เป็น base class ของ Grill และ Fry
+  - Meat เป็น base class ของ Pork และ Chicken
+- กำหนด default constructor
+  - Cooking: time 0 minute
+  - Grill: stove_type "eletric" time 5 minute
+  - Fry: is_oil true time 3 minute
+  - Meat: is_organic false
+  - Pork: type_pork 1 is_organic true
+  - Chicken: type_chicken 1 is_organic false
+  - Food : price 20 dish_name "rice" cooking 0 meat 0 size 0
+  - Order : food 0 size 0 is_member false

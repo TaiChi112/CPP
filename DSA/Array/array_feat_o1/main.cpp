@@ -50,6 +50,7 @@ int main()
     {
         cout << arr3[i] << endl;
     }
+    
     vector<vector<int>> arr4 = {{112, 211}, {314, 415}};
     for (int i = 0; i < arr4.size(); i++)
     {
@@ -74,6 +75,35 @@ int main()
             cout << data << " ";
         }
         cout << endl;
+    }
+    vector<Person> arr6 = {Person(1, "A"), Person(2, "B")};
+    arr6.push_back(Person(3, "C"));
+    arr6.push_back(Person(4, "D"));
+    for (int i(0); i < arr6.size(); i++)
+    {
+        arr6[i].display();
+    }
+
+    vector<vector<Person>> arr7 = {{Person(1, "A"), Person(2, "B")}, {Person(3, "C"), Person(4, "D")}};
+    for (int i(0); i < arr7.size(); i++)
+    {
+        for (int j(0); j < arr7[i].size(); j++)
+        {
+            cout << arr7[i].size() << endl;
+            arr7[i][j].display();
+        }
+    }
+
+    vector<vector<Person>> arr8(3, vector<Person>(1, Person(0, "Default")));
+    for(vector<Person> row: arr8){
+        for(Person data: row){
+            data.display();
+        }
+    }
+
+    vector<int> arr9 (5, 112);
+    for(int data: arr9){
+        cout << data << " ";
     }
     return 0;
 }

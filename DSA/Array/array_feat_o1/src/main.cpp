@@ -50,7 +50,7 @@ int main()
     {
         cout << arr3[i] << endl;
     }
-    
+
     vector<vector<int>> arr4 = {{112, 211}, {314, 415}};
     for (int i = 0; i < arr4.size(); i++)
     {
@@ -95,14 +95,93 @@ int main()
     }
 
     vector<vector<Person>> arr8(3, vector<Person>(1, Person(0, "Default")));
-    for(vector<Person> row: arr8){
-        for(Person data: row){
+    for (vector<Person> row : arr8)
+    {
+        for (Person data : row)
+        {
             data.display();
         }
     }
 
-    vector<int> arr9 (5, 112);
-    for(int data: arr9){
+    vector<int> arr9(5, 112);
+    for (int data : arr9)
+    {
+        cout << data << " ";
+    }
+    cout << endl;
+
+    // initialization & assignment of vector
+    vector<int> arr10;
+    arr10.push_back(112);
+    arr10.push_back(118);
+    arr10.push_back(212);
+    vector<int> arr11 = {1, 2, 3, 4, 5};
+    vector<int> arr12(arr11);
+    for (size_t i = 0; i < arr11.size(); i++)
+    {
+
+        cout << arr11[i] << " \n";
+    }
+
+    vector<int> arr13(5, 21);
+    vector<int> arr14;
+    arr14.assign(5, 100);
+    for (size_t i = 0; i < arr14.size(); i++)
+    {
+        cout << arr14[i] << " ";
+    }
+    cout << endl;
+
+    // adding & removing elements
+    vector<int> arr15;
+    arr15.push_back(112);
+    arr15.push_back(212);
+    arr15.push_back(311);
+    for (int data : arr15)
+    {
+        cout << data << " ";
+    }
+    cout << endl;
+    arr15.pop_back();
+    cout << "after pop data arr15" << endl;
+    for (int data : arr15)
+    {
+        cout << data << " ";
+    }
+    cout << endl;
+    arr15.insert(arr15.begin() + 1, 999);
+    arr15.insert(arr15.end(), 888);
+    cout << "after insert data arr15" << endl;
+    for (int data : arr15)
+    {
+        cout << data << " ";
+    }
+    cout << endl;
+    arr15.insert(arr15.begin() + 1, 3, 777);
+    cout << "after insert data arr15" << endl;
+    for (int data : arr15)
+    {
+        cout << data << " ";
+    }
+    cout<<endl;
+    arr15.erase(arr15.begin() + 1);
+    cout << "after erase data arr15" << endl;   
+    for (int data : arr15)
+    {
+        cout << data << " ";
+    }
+    cout<<endl;
+    arr15.erase(arr15.begin() + 1, arr15.begin() + 3);
+    cout << "after erase data arr15" << endl;
+    for (int data : arr15)
+    {
+        cout << data << " ";
+    }
+    cout<<endl;
+    arr15.clear();
+    cout << "after clear data arr15" << endl;
+    for (int data : arr15)
+    {
         cout << data << " ";
     }
     return 0;

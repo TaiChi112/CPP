@@ -36,6 +36,28 @@ class CornStorage{
   }
 
 };
+class Somtum{
+  double price;
+  int chilliNum;
+  public:
+  Somtum():price(35),chilliNum(3){}
+  Somtum(double p,int cn):price(p),chilliNum(cn){}
+  void setSomtumPrice(double p){
+    this->price = p;
+  }
+  void setSomtunChilliNum(int cn){
+    this->chilliNum = cn;
+  }
+  double getSomtumPrice(){
+    return this->price;
+  }
+  int getChilliNum(){
+    return this->chilliNum;
+  }
+  void showSomtum(){
+    cout<<"Somtum is price: "<<getSomtumPrice()<<" & amount chilli is: "<<getChilliNum()<<endl;
+  }
+};
 int main(){
     Corn *c = new Corn[2];
     c[0].setTypeCorn("America");
@@ -46,5 +68,15 @@ int main(){
     CornStorage *cs = new CornStorage[1];
     cs[0].setNumCornStorage(2);
     cs[0].showNumCornStorage();
+
+    Somtum *st = new Somtum[2];
+    st[0].setSomtumPrice(50.0);
+    st[1].setSomtumPrice(112.112);
+    st[0].setSomtunChilliNum(7);
+    st[1].setSomtunChilliNum(112);
+    for(int i(0);i<2;i++){
+      st[i].showSomtum();
+    }
+
     return 0;
 };

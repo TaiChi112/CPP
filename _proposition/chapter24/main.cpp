@@ -58,6 +58,21 @@ class Somtum{
     cout<<"Somtum is price: "<<getSomtumPrice()<<" & amount chilli is: "<<getChilliNum()<<endl;
   }
 };
+class SomtumThai: public Somtum{
+  bool isPeanut;
+  public:
+  SomtumThai():isPeanut(false){}
+  SomtumThai(double p,int cn,bool ip):Somtum(p,cn),isPeanut(ip){}
+  void setSomtumThaiPeanut(bool ip){
+    this->isPeanut = ip;
+  }
+  bool getSomtumThaiPeanut(){
+    return this->isPeanut;
+  }
+  void showSomtumThai(){
+    cout<<"Somtum Thai is price: "<<getSomtumPrice()<<" & amount chilli is: "<<getChilliNum()<<" & peanut is: "<<getSomtumThaiPeanut()<<endl;
+  }
+};
 int main(){
     Corn *c = new Corn[2];
     c[0].setTypeCorn("America");
@@ -77,6 +92,20 @@ int main(){
     for(int i(0);i<2;i++){
       st[i].showSomtum();
     }
-
+    SomtumThai *stt = new SomtumThai[2];
+    stt[0].setSomtumPrice(50.0);
+    stt[0].setSomtunChilliNum(7);
+    stt[0].setSomtumThaiPeanut(true);
+    stt[1].setSomtumPrice(112.112);
+    stt[1].setSomtunChilliNum(112);
+    stt[1].setSomtumThaiPeanut(false);
+    for(int i(0);i<2;i++){
+      stt[i].showSomtumThai();
+    }
+    delete[] c;
+    delete[] cs;
+    delete[] st;
+    delete[] stt;
+    cout<<"End of program."<<endl;
     return 0;
 };

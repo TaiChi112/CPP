@@ -43,10 +43,18 @@ class Somtum{
   Somtum():price(35),chilliNum(3){}
   Somtum(double p,int cn):price(p),chilliNum(cn){}
   void setSomtumPrice(double p){
-    this->price = p;
+      if(p>0){
+          this->price = p;
+      }else{
+          this->price = 35;
+      }
   }
   void setSomtunChilliNum(int cn){
-    this->chilliNum = cn;
+    if(cn>0){
+          this->chilliNum = cn;
+      }else{
+          this->chilliNum = 3;
+      }
   }
   double getSomtumPrice(){
     return this->price;

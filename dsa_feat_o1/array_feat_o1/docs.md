@@ -8,3 +8,11 @@
 - contains(value, data[]) → bool
 - insert_at(index, value, data[]) → void
 - delete_at(index, data[]) → void
+
+### 📊 สถิติ
+- find_average(data[]) → float
+- find_median(data[]) → float
+- find_mode(data[]) → int
+- find_range(data[]) → int
+- find_variance(data[]) → float
+- find_std_deviation(data[]) → float

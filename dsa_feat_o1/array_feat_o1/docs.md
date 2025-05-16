@@ -61,3 +61,11 @@
 | `merge_sort(data[])`     | unsorted array  | sorted array                    |
 | `quick_sort(data[])`     | unsorted array  | sorted array                    |
 | `closest_pair(points[])` | array of points | (point1, point2, min_distance) |
+
+### 📌 Greedy Algorithm
+
+| ชื่อ                                       | Input                    | Output                      |
+| ---------------------------------------- | ------------------------ | --------------------------- |
+| `activity_selection(start[], end[])`     | start/end times          | list of selected activities |
+| `fractional_knapsack(items[], capacity)` | array of (value, weight) | max value                   |
+| `min_coin_change(coins[], amount)`       | coin denominations       | min number of coins         |

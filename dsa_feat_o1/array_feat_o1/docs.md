@@ -54,3 +54,10 @@
 | `ternary_search(data[], target)`     | unimodal array      | index        |
 | `jump_search(data[], target)`        | sorted array, value | index        |
 
+### 📌 Divide & Conquer
+
+| ชื่อ                       | Input           | Output                          |
+| ------------------------ | --------------- | ------------------------------- |
+| `merge_sort(data[])`     | unsorted array  | sorted array                    |
+| `quick_sort(data[])`     | unsorted array  | sorted array                    |
+| `closest_pair(points[])` | array of points | (point1, point2, min_distance) |

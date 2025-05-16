@@ -16,3 +16,11 @@
 - find_range(data[]) → int
 - find_variance(data[]) → float
 - find_std_deviation(data[]) → float
+
+### 🔁 การจัดเรียง / สลับ
+- sort_ascending(data[]) → void
+- sort_descending(data[]) → void
+- reverse(data[]) → void
+- shuffle(data[]) → void
+- rotate_left(data[], k) → void
+- rotate_right(data[], k) → void

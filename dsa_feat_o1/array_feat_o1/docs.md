@@ -69,3 +69,12 @@
 | `activity_selection(start[], end[])`     | start/end times          | list of selected activities |
 | `fractional_knapsack(items[], capacity)` | array of (value, weight) | max value                   |
 | `min_coin_change(coins[], amount)`       | coin denominations       | min number of coins         |
+
+### 📌 Dynamic Programming (DP)
+
+| ชื่อ                                     | Input          | Output              |
+| ---------------------------------------- | -------------- | ------------------- |
+| `longest_increasing_subsequence(data[])` | array          | length              |
+| `knapsack(items[], W)`                   | values/weights | max value           |
+| `edit_distance(str1, str2)`              | 2 strings      | min operations      |
+| `matrix_chain_order(dimensions[])`       | matrix dims    | min multiplications |

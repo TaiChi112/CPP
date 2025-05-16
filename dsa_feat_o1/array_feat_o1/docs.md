@@ -24,3 +24,9 @@
 - shuffle(data[]) → void
 - rotate_left(data[], k) → void
 - rotate_right(data[], k) → void
+
+### 🧮 คณิตศาสตร์บน array
+- sum_all(data[]) → int
+- multiply_all(data[]) → int
+- cumulative_sum(data[]) → array
+- difference_between_neighbors(data[]) → array

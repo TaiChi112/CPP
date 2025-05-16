@@ -43,3 +43,14 @@
 - unique_values(data[]) → array
 - merge_arrays(data1[], data2[]) → array
 - split_array(data[], n) → array[][]
+
+## 🧠 Advanced Algorithm List (แบ่งตามหมวด พร้อม input/output)
+### 📌 Search & Optimization
+
+| ชื่อ                                   | Input               | Output       |
+| ------------------------------------ | ------------------- | ------------ |
+| `binary_search(data[], target)`      | sorted array, value | index หรือ -1 |
+| `exponential_search(data[], target)` | sorted array, value | index        |
+| `ternary_search(data[], target)`     | unimodal array      | index        |
+| `jump_search(data[], target)`        | sorted array, value | index        |
+

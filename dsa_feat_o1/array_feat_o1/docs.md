@@ -30,3 +30,9 @@
 - multiply_all(data[]) → int
 - cumulative_sum(data[]) → array
 - difference_between_neighbors(data[]) → array
+
+### 🧠 การคัดเลือก/กลั่นกรอง
+- filter_even(data[]) → array
+- filter_odd(data[]) → array
+- filter_positive(data[]) → array
+- filter_prime(data[]) → array

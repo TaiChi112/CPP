@@ -108,3 +108,12 @@
 | `gcd(a, b)`                         | int, int      | greatest common divisor |
 | `lcm(a, b)`                         | int, int      | least common multiple   |
 | `modular_exponentiation(a, b, mod)` | int, int, int | (a^b) mod m             |
+
+### 📌 Others (Bonus)
+
+| ชื่อ                                | Input           | Output                        |
+| ----------------------------------- | --------------- | ----------------------------- |
+| `kmp_pattern_search(text, pattern)` | string, pattern | all match positions           |
+| `manacher_palindrome(s)`            | string          | longest palindromic substring |
+| `trie_insert_search(words[])`       | list of strings | trie structure                |
+| `heap_sort(data[])`                 | array           | sorted array                  |

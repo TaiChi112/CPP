@@ -99,3 +99,12 @@
 | `sudoku_solver(board)`          | 9x9 grid      | solved grid             |
 | `generate_permutations(data[])` | array         | all permutations        |
 | `subset_sum(nums[], target)`    | array, target | True/False              |
+
+### 📌 Advanced Math / Number Theory
+
+| ชื่อ                                | Input         | Output                  |
+| ----------------------------------- | ------------- | ----------------------- |
+| `sieve_of_eratosthenes(n)`          | int           | primes ≤ n              |
+| `gcd(a, b)`                         | int, int      | greatest common divisor |
+| `lcm(a, b)`                         | int, int      | least common multiple   |
+| `modular_exponentiation(a, b, mod)` | int, int, int | (a^b) mod m             |

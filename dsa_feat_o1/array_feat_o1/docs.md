@@ -45,6 +45,7 @@
 - split_array(data[], n) → array[][]
 
 ## 🧠 Advanced Algorithm List (แบ่งตามหมวด พร้อม input/output)
+
 ### 📌 Search & Optimization
 
 | ชื่อ                                   | Input               | Output       |
@@ -78,3 +79,14 @@
 | `knapsack(items[], W)`                   | values/weights | max value           |
 | `edit_distance(str1, str2)`              | 2 strings      | min operations      |
 | `matrix_chain_order(dimensions[])`       | matrix dims    | min multiplications |
+
+### 📌 Graph Algorithms
+
+| ชื่อ                         | Input                     | Output                |
+| ---------------------------- | ------------------------- | --------------------- |
+| `dijkstra(graph, start)`     | weighted graph            | shortest paths        |
+| `bellman_ford(graph, start)` | graph with negative edges | shortest paths        |
+| `floyd_warshall(matrix)`     | adj matrix                | all-pairs shortest    |
+| `kruskal(graph)`             | undirected graph          | minimum spanning tree |
+| `prim(graph)`                | undirected graph          | minimum spanning tree |
+| `topological_sort(graph)`    | DAG                       | ordered nodes         |

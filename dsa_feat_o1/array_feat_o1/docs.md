@@ -36,3 +36,10 @@
 - filter_odd(data[]) → array
 - filter_positive(data[]) → array
 - filter_prime(data[]) → array
+
+### 🧬 การเปลี่ยนรูปแบบ
+- normalize(data[]) → array
+- remove_duplicates(data[]) → array
+- unique_values(data[]) → array
+- merge_arrays(data1[], data2[]) → array
+- split_array(data[], n) → array[][]

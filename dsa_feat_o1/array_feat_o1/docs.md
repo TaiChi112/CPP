@@ -90,3 +90,12 @@
 | `kruskal(graph)`             | undirected graph          | minimum spanning tree |
 | `prim(graph)`                | undirected graph          | minimum spanning tree |
 | `topological_sort(graph)`    | DAG                       | ordered nodes         |
+
+### 📌 Backtracking / Recursion
+
+| ชื่อ                            | Input         | Output                  |
+| ------------------------------- | ------------- | ----------------------- |
+| `n_queens(n)`                   | int           | all valid board configs |
+| `sudoku_solver(board)`          | 9x9 grid      | solved grid             |
+| `generate_permutations(data[])` | array         | all permutations        |
+| `subset_sum(nums[], target)`    | array, target | True/False              |

@@ -20,24 +20,29 @@ public:
     void show();
     bool isLeapYear();
     int getDaysInMonth();
+    void IDate();
 };
 Date::Date() : day(0), month(0), year(0) {}
 Date::Date(int d, int m, int y) : day(d), month(m), year(y) {}
-Date::~Date() { cout << "Destructuing Date" << endl; }
+Date::~Date() { cout << "Destructuing Date : " << getDay() << " : " << getMonth() << " : " << getYear() << endl; }
 void Date::setDay(int d) { day = d; }
 void Date::setMonth(int m) { month = m; }
 void Date::setYear(int y) { year = y; }
 int Date::getDay() { return day; }
 int Date::getMonth() { return month; }
 int Date::getYear() { return year; }
+// void Date::show()
+// {
+//     cout << getDay() << "/" << getMonth()  << "/" << getYear() << endl;
+//     getDaysInMonth();
+//     if (isLeapYear())
+//         cout << "Leap Year" << endl;
+//     else
+//         cout << "Not Leap Year" << endl;
+// }
 void Date::show()
 {
-    cout << day << "/" << month << "/" << year << endl;
-    getDaysInMonth();
-    if (isLeapYear())
-        cout << "Leap Year" << endl;
-    else
-        cout << "Not Leap Year" << endl;
+    cout << getDay() << "/" << getMonth() << "/" << getYear() << endl;
 }
 bool Date::isLeapYear()
 {
@@ -71,13 +76,45 @@ int Date::getDaysInMonth()
         return -1; // Invalid month
     }
 }
-void IODate(int &day, int &month, int &year)
+// void IDate(int &day, int &month, int &year)
+// {
+//     do
+//     {
+//         cout << "Enter day (1-31): ";
+//         cin >> day;
+//     } while (day < 1 || day > 31);
+
+//     do
+//     {
+//         cout << "Enter month (1-12): ";
+//         cin >> month;
+//     } while (month < 1 || month > 12);
+
+//     cout << "Enter year: ";
+//     cin >> year;
+// }
+void Date::IDate()
 {
-    cout << "Enter day: ";
-    cin >> day;
-    cout << "Enter month: ";
-    cin >> month;
-    cout << "Enter year: ";
+    cout << "Enter your Date information (day month year)\n";
+    do
+    {
+        cout << "Enter day (1-31) : ";
+        cin >> day;
+    } while (day < 1 || day > 31);
+
+    do
+    {
+        cout << "Enter month (1-12) : ";
+        cin >> month;
+    } while (month < 1 || month > 12);
+
+    cout << "Enter year : ";
     cin >> year;
 }
+// void ODate(int day, int month, int year)
+// {
+//     cout << "Date: " << day << "/" << month << "/" << year << endl;
+// }
+// string Person::getDate() { return to_string(date.getDay()) + "/" + to_string(date.getMonth()) + "/" + to_string(date.getYear()); }
+
 #endif

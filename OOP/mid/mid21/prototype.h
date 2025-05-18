@@ -30,6 +30,7 @@ public:
     void setFlavor(int);
     void setType(int);
     void setTopping(bool);
+    void set(int, int, bool);
 };
 class IceCream : public Dessert
 {

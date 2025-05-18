@@ -1,37 +1,44 @@
 #include <iostream>
 
 using namespace std;
-struct Account;
-struct User
+class User
 {
     int userId;
     string name;
-    Account **accounts;
-    int accountCount;
-    int accountCapacity;
-    User(int uid = 1, string name = "") : userId(uid), name(name) {}
-    User(const User &user) : userId(user.userId), name(user.name)
-    {
-        accounts = new Account *[user.accountCapacity];
-        for (int i = 0; i < user.accountCount; i++)
-        {
-            accounts[i] = user.accounts[i];
-        }
-        accountCount = user.accountCount;
-        accountCapacity = user.accountCapacity;
-    }
-    ~User() { delete[] accounts; }
+    double money;
 
-    friend ostream &operator<<(ostream &os, const User &user)
+public:
+    User(int uid = 0, string n = "Undefine", double mn = 0.0) : userId(uid), name(n), money(mn) {}
+    friend ostream &operator<<(ostream &out, const User &u)
     {
-        os << "User Id: " << user.userId << " Name: " << user.name;
-        return os;
+        out << "User Id: " << u.userId << endl;
+        out << "Name: " << u.name << endl;
+        out << "Money: " << u.money << endl;
+        return out;
     }
 };
+class Account
+{
+    int accountId;
+    double balance;
+    User userId;
 
+public:
+    Account(int aid = 0, double b = 0.0, User uid = User()) : accountId(aid), balance(b), userId(uid) {}
+    friend ostream &operator<<(ostream &out, const Account &a)
+    {
+        out << "Account Id: " << a.accountId << endl;
+        out << "Balance: " << a.balance << endl;
+        out << "User Id: " << a.userId << endl;
+        return out;
+    }
+};
 int main()
 {
-    User user(1, "John");
-    cout << user << endl;
+    User u1(1, "John", 112.112), u2;
+    cout << u1 << endl;
+    cout << u2 << endl;
+    Account a1(1, 1000.0, u1);
+    cout << a1 << endl;
     return 0;
 }

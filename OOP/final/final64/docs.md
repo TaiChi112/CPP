@@ -74,3 +74,23 @@ int main() {
     return 0;
 }
 ```
+
+```cpp
+// Overload operator<< for pointers
+    friend ostream &operator<<(ostream &os, const Orange *orange) {
+        if (orange) { // Check if pointer is not null
+            os << "Orange[ID: " << orange->id << ", Location: " << orange->location << "]";
+        } else {
+            os << "Null Orange";
+        }
+        return os;
+    }
+```
+
+```cpp
+// Overload operator<<
+    friend ostream &operator<<(ostream &os, const Orange &orange) {
+        os << "Orange[ID: " << orange.id << ", Location: " << orange.location << "]";
+        return os;
+    }
+```

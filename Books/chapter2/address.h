@@ -33,20 +33,23 @@ public:
 };
 class Address
 {
-    IdentityCard identityCard;
+    // IdentityCard identityCard;
     string street;
     string city;
     string country;
 
 public:
     Address();
-    Address(IdentityCard, string, string, string);
+    Address(string, string, string);
+    // Address(IdentityCard, string, string, string);// original
     ~Address();
-    IdentityCard getIdentityCard();
+    // IdentityCard getIdentityCard();
     string getStreet();
     string getCity();
     string getCountry();
     void display();
+    void show();
+    void IAddress();
 };
 Birthday::Birthday() : day(0), month(0), year(0) {}
 Birthday::Birthday(int d, int m, int y) : day((d <= 31 ? d : 1)), month((m <= 12 ? m : 1)), year(y) {}
@@ -61,23 +64,31 @@ int IdentityCard::getId() { return id; }
 string IdentityCard::getFirstname() { return firstname; }
 string IdentityCard::getLastname() { return lastname; }
 Birthday IdentityCard::getBirthday() { return birthday; }
-Address::Address() : identityCard(), street(""), city(""), country("") {}
-Address::Address(IdentityCard idCard, string st, string c, string co) : identityCard(idCard), street(st), city(c), country(co) {}
-Address::~Address() { cout << "desctructuring Address" << endl; }
-IdentityCard Address::getIdentityCard() { return identityCard; }
+// Address::Address() : identityCard(), street(""), city(""), country("") {}// original
+Address::Address() : street("undefind"), city("undefind"), country("undefind") {}
+// Address::Address(IdentityCard idCard, string st, string c, string co) : identityCard(idCard), street(st), city(c), country(co) {}//original
+Address::Address(string st, string c, string co) : street(st), city(c), country(co) {} // #
+Address::~Address() { cout << "Desctructuring Address : " << getStreet() << " : " << getCity() << " : " << getCountry() << endl; }
+// IdentityCard Address::getIdentityCard() { return identityCard; }
 string Address::getStreet() { return street; }
 string Address::getCity() { return city; }
 string Address::getCountry() { return country; }
 void Address::display()
 {
-    cout << "Identity Card Information: " << endl;
-    cout << "ID: " << getIdentityCard().getId() << endl;
-    cout << "Name: " << getIdentityCard().getFirstname() << " " << getIdentityCard().getLastname() << endl;
-    cout << "Birthday: " << getIdentityCard().getBirthday().getDay() << "/" << getIdentityCard().getBirthday().getMonth() << "/" << getIdentityCard().getBirthday().getYear() << endl;
+    // cout << "Identity Card Information: " << endl;
+    // cout << "ID: " << getIdentityCard().getId() << endl;
+    // cout << "Name: " << getIdentityCard().getFirstname() << " " << getIdentityCard().getLastname() << endl;
+    // cout << "Birthday: " << getIdentityCard().getBirthday().getDay() << "/" << getIdentityCard().getBirthday().getMonth() << "/" << getIdentityCard().getBirthday().getYear() << endl;
     cout << "Address Information: " << endl;
-    cout << "Street: " << street << endl;
-    cout << "City: " << city << endl;
-    cout << "Country: " << country << endl;
+    cout << "Street: " << getStreet() << endl;
+    cout << "City: " << getCity() << endl;
+    cout << "Country: " << getCountry() << endl;
+}
+void Address::show()
+{
+    cout << "Street: " << getStreet() << endl;
+    cout << "City: " << getCity() << endl;
+    cout << "Country: " << getCountry() << endl;
 }
 
 void IOBirthday(int &day, int &month, int &year)
@@ -100,14 +111,14 @@ void IOIdentityCard(int &id, string &firstname, string &lastname)
     cout << "lastname : ";
     cin >> lastname;
 }
-void IOAddress(string &street, string &city, string &country)
+void Address::IAddress()
 {
     cout << "Enter your address information (street city country)\n";
-    cout << "street : ";
+    cout << "street (Ramkhamheang): ";
     cin >> street;
-    cout << "city : ";
+    cout << "city (Bangkok): ";
     cin >> city;
-    cout << "country : ";
+    cout << "country (Thailand): ";
     cin >> country;
 }
 

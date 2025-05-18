@@ -107,7 +107,21 @@ Wardrobe::Wardrobe() : size(), numTops(1), numPants(1)
     pants = new Pants[numPants]{Pants(256.00, 3, 1)};
 }
 
-Wardrobe::Wardrobe(Size s, Tops *t, int nt, Pants *p, int np) : size(s), tops(t), numTops(nt), pants(p), numPants(np) {}
+Wardrobe::Wardrobe(Size s, Tops *t, int nt, Pants *p, int np) : size(s), tops(t), numTops(nt), pants(p), numPants(np) {
+    // tops = new Tops[nt];
+    // for (int i = 0; i < nt; i++)
+    // {
+    //     tops[i] = t[i];
+    // }
+    // numTops = nt;
+    // pants = new Pants[np];
+    // for (int i = 0; i < np; i++)
+    // {
+    //     pants[i] = p[i];
+    // }
+    // numPants = np;
+
+}
 
 Wardrobe::~Wardrobe()
 {
@@ -218,4 +232,16 @@ void Wardrobe::show()
         cout << "[ " << i + 1 << ". ";
         pants[i].show();
     }
+}
+void Wardrobe::setNumTops(int nt)
+{
+    delete[] tops;
+    tops = new Tops[nt];
+    numTops = nt;
+}
+void Wardrobe::setNumPants(int np)
+{
+    delete[] pants;
+    pants = new Pants[np];
+    numPants = np;
 }

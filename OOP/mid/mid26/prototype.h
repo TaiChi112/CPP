@@ -77,6 +77,8 @@ public:
     Size getSize();
     Tops *getTops();
     Pants *getPants();
+    void setNumTops(int);
+    void setNumPants(int);
     int getNumTops();
     int getNumPants();
     void addTop(Tops);

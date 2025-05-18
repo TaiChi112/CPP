@@ -56,3 +56,6 @@
   - สำหรับ meat & food ให้ return ค่าสมาชิกใน array ทีละ 1 โดยระบุ index ที่ต้องการ
   - show เเสดงข้อมูลของ subclass & base class ใช้หลักการ dynamic binding โดย show ของ abstract class ให้ทำเป็น pure virtual function
   - สร้าง operator << ในการ print ค่าของ subclass & base class ใช้หลักการ dynamic binding
+
+- class Food
+  - function setMeat(int,Meat*)

@@ -117,3 +117,27 @@
 | `manacher_palindrome(s)`            | string          | longest palindromic substring |
 | `trie_insert_search(words[])`       | list of strings | trie structure                |
 | `heap_sort(data[])`                 | array           | sorted array                  |
+
+Data Types
+- ├── Primitive
+- │   ├── Integer
+- │   ├── Float / Double
+- │   ├── Boolean
+- │   ├── Character
+- │   └── (บางภาษา) String
+- │
+- ├── Composite / Derived
+- │   ├── Array
+- │   ├── Pointer / Reference
+- │   ├── Function Types
+- │   └── Tuple / List / Set (Python)
+- │
+- ├── User-defined
+- │   ├── Struct / Class
+- │   ├── Enum / Union / Typedef
+- │   └── DataClass / NamedTuple (Python)
+- │
+- └── Abstract / Special (บางภาษา)
+-     ├── Interface / Abstract class
+-     ├── Lambda / Generator
+-     └── Coroutine / Async def

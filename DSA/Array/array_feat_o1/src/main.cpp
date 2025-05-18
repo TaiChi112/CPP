@@ -184,5 +184,9 @@ int main()
     {
         cout << data << " ";
     }
+    vector<int> arr16(8,5);
+    for(int data: arr16){
+        cout<<data<<" ";
+    }
     return 0;
 }

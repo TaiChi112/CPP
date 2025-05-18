@@ -1,14 +1,11 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 #include <iostream>
+#include "person.h"
 using namespace std;
 
-class Student
+class Student : virtual public Person
 {
-    int id;
-    string firstname;
-    string lastname;
-    string date;
     int studentId;
     string faculty;
     string branch;
@@ -17,46 +14,66 @@ class Student
 
 public:
     Student();
-    Student(int, string, string, string, int, string, string, double, int);
+    Student(int, string, string, Date, Address, int, string, string, int);
     ~Student();
-    void set(int, string, string, string, int, string, string, double, int);
+    void set(int, string, string, int);
     int getStudentId();
     string getFaculty();
     string getBranch();
     double getAverageGrade();
+    int getAmountOfCourses();
     void CalculateAverageGrade();
     void show();
 };
-Student::Student() : id(0), firstname("undefined"), lastname("undefined"), date("undefined"), studentId(0), faculty("undefined"), branch("undefined"), averageGrade(0.0), amountOfCourses(0) { set(id, firstname, lastname, date, studentId, faculty, branch, averageGrade, amountOfCourses); };
-Student::Student(int id, string firstname, string lastname, string date, int studentId, string faculty, string branch, double averageGrade, int amountOfCourses) : id(id), firstname(firstname), lastname(lastname), date(date), studentId(studentId), faculty(faculty), branch(branch), averageGrade(averageGrade), amountOfCourses(amountOfCourses) { set(id, firstname, lastname, date, studentId, faculty, branch, averageGrade, amountOfCourses); };
-Student::~Student() { cout << "destructuring Student : " << firstname << endl; }
-void Student::set(int id, string firstname, string lastname, string date, int studentId, string faculty, string branch, double averageGrade, int amountOfCourses)
+Student::Student() : Person(), studentId(0), faculty("undefined"), branch("undefined"), amountOfCourses(0)
 {
-    this->id = id;
-    this->firstname = firstname;
-    this->lastname = lastname;
-    this->date = date;
-    this->studentId = studentId;
-    this->faculty = faculty;
-    this->branch = branch;
-    this->averageGrade = averageGrade;
-    this->amountOfCourses = amountOfCourses;
+    set(studentId, faculty, branch, amountOfCourses);
+};
+Student::Student(int personId, string firstname, string lastname, Date date, Address address, int studentId, string faculty, string branch, int amountOfCourses) : Person(personId, firstname, lastname, date, address), studentId(studentId), faculty(faculty), branch(branch), amountOfCourses(amountOfCourses)
+{
+    set(studentId, faculty, branch, amountOfCourses);
+};
+Student::~Student()
+{
+    cout << "destructuring Student : " << getStudentId() << " : " << getFaculty() << " : " << getBranch() << endl;
 }
-int Student::getStudentId() { return studentId; }
-string Student::getFaculty() { return faculty; }
-string Student::getBranch() { return branch; }
-double Student::getAverageGrade() { return averageGrade; }
+
+void Student::set(int studentId, string faculty, string branch, int amountOfCourses)
+{
+    studentId = studentId;
+    faculty = faculty;
+    branch = branch;
+    amountOfCourses = amountOfCourses;
+}
+int Student::getStudentId()
+{
+    return studentId;
+}
+string Student::getFaculty()
+{
+    return faculty;
+}
+string Student::getBranch()
+{
+    return branch;
+}
+double Student::getAverageGrade()
+{
+    return averageGrade;
+}
+int Student::getAmountOfCourses()
+{
+    return amountOfCourses;
+}
 
 void Student::show()
 {
-    cout << "id: " << id << endl;
-    cout << "firstname: " << firstname << endl;
-    cout << "lastname: " << lastname << endl;
-    cout << "date: " << date << endl;
-    cout << "Student id: " << studentId << endl;
-    cout << "Faculty: " << faculty << endl;
-    cout << "Branch: " << branch << endl;
-    cout << "Average Grade: " << averageGrade << endl;
+    Person::show();
+    cout << "Student id: " << getStudentId() << endl;
+    cout << "Faculty : " << getFaculty() << endl;
+    cout << "Branch :  " << getBranch() << endl;
+    cout << "Average Grade: " << getAverageGrade() << endl;
+    cout << "Amount of Courses: " << amountOfCourses << endl;
     cout << "--------------" << endl;
 }
 void Student::CalculateAverageGrade()
@@ -69,7 +86,7 @@ void Student::CalculateAverageGrade()
     double summation(0.0), grade(0.0);
     for (int i = 0; i < amountOfCourses; i++)
     {
-        cout << "Enter grade for course " << i + 1 << " : ";
+        cout << "Enter grade for course (1.0 - 4.0) " << i + 1 << " : ";
         cin >> grade;
         if (grade < 0.0 || grade > 4.0)
         {
@@ -81,5 +98,40 @@ void Student::CalculateAverageGrade()
     }
     averageGrade = summation / amountOfCourses;
 }
-
+void IStudent(int &studentId, string &faculty, string &branch, int &amountOfCourses)
+{
+    cout << "Enter student ID : ";
+    cin >> studentId;
+    cout << "Enter faculty (Science): ";
+    cin >> faculty;
+    cout << "Enter branch (CS): ";
+    cin >> branch;
+    cout << "Enter amount of courses : ";
+    cin >> amountOfCourses;
+    cout << "--------------" << endl;
+}
+// void Student::set(int id, string firstname, string lastname, string date, int studentId, string faculty, string branch, double averageGrade, int amountOfCourses)
+// {
+//     this->id = id;
+//     this->firstname = firstname;
+//     this->lastname = lastname;
+//     this->date = date;
+//     this->studentId = studentId;
+//     this->faculty = faculty;
+//     this->branch = branch;
+//     this->averageGrade = averageGrade;
+//     this->amountOfCourses = amountOfCourses;
+// }
+// void Student::show() // original
+// {
+//     cout << "id: " << id << endl;
+//     cout << "firstname: " << firstname << endl;
+//     cout << "lastname: " << lastname << endl;
+//     cout << "date: " << date << endl;
+//     cout << "Student id: " << studentId << endl;
+//     cout << "Faculty: " << faculty << endl;
+//     cout << "Branch: " << branch << endl;
+//     cout << "Average Grade: " << averageGrade << endl;
+//     cout << "--------------" << endl;
+// }
 #endif // STUDENT_H

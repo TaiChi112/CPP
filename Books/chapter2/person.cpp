@@ -1,26 +1,26 @@
 #include <iostream>
 #include "person.h"
+#include "date.h"
+#include "address.h"
 
 using namespace std;
 
-int main(){
+int main()
+{
+    Date date(28, 03, 2004);
+    Address address("Ramkhamheang", "Bangkok", "Thailand");
     int id;
-    string firstname, lastname, date;
-    cout << "Enter ID : ";
-    cin >> id;
-    cout << "Enter first name : ";
-    cin >> firstname;
-    cout << "Enter last name : ";
-    cin >> lastname;
-    cout << "Enter date : ";
-    cin >> date;
-    Person p3, p4(id, firstname, lastname, date);
+    string firstname, lastname;
+    
+    IPerson(id, firstname, lastname, date, address);
+    Person p1(id, firstname, lastname, date, address);
     cout << endl;
-    p3.show();
+    OPerson(id, firstname, lastname, date, address);
+    
     cout << endl;
-    p4.show();
+    p1.show();
     cout << endl;
-    cout << "amount object : " << Person::getCount() << endl;
+    cout << "amount object Person : " << p1.getCount() << endl;
     cout << endl;
     return 0;
 }

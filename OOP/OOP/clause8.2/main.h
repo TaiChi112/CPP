@@ -87,4 +87,5 @@ Rectangle operator--(Rectangle &rect, int) // post
         rect.width--;
     return temp;
 }
+
 #endif // RECTANGLE_H

@@ -4,37 +4,33 @@
 
 class PencilSharpener
 {
-    enum Color
-    {
-        BLUE = 1,
-        WHITE,
-        GREEN,
-        PINK,
-        BLACK
-    };
+    int color;
     double price;
+    int num;
 
 public:
     PencilSharpener();
-    PencilSharpener(int, double);
+    PencilSharpener(int, double, int);
     ~PencilSharpener();
-    void set(int, double);
+    void set(int, double, int);
     void setColor(int);
     void setPrice(double);
+    void setNum(int);
     int getColor();
     double getPrice();
+    int getNum();
     void show();
 };
 
-class ElectricPencilSharpener : public PencilSharpener
+class EletricSharpener : public PencilSharpener
 {
     int type;
 
 public:
-    ElectricPencilSharpener();
-    ElectricPencilSharpener(int, int, double);
-    ~ElectricPencilSharpener();
-    void set(int, int, double);
+    EletricSharpener();
+    EletricSharpener(int, int, double, int);
+    ~EletricSharpener();
+    void set(int, int, double, int);
     void setType(int);
     int getType();
     void show();
@@ -46,9 +42,9 @@ class ManualPencilSharpener : public PencilSharpener
 
 public:
     ManualPencilSharpener();
-    ManualPencilSharpener(bool, int, double);
+    ManualPencilSharpener(bool, int, double, int);
     ~ManualPencilSharpener();
-    void set(bool, int, double);
+    void set(bool, int, double, int);
     void setBox(bool);
     bool getBox();
     void show();
@@ -59,9 +55,9 @@ class PrismSharpener : public ManualPencilSharpener
 
 public:
     PrismSharpener();
-    PrismSharpener(int, bool, int, double);
+    PrismSharpener(int, bool, int, double, int);
     ~PrismSharpener();
-    void set(int, bool, int, double);
+    void set(int, bool, int, double, int);
     void setHand(int);
     int getHand();
     void show();
@@ -72,9 +68,9 @@ class PlanetarySharpener : public ManualPencilSharpener
 
 public:
     PlanetarySharpener();
-    PlanetarySharpener(bool, bool, int, double);
+    PlanetarySharpener(bool, bool, int, double, int);
     ~PlanetarySharpener();
-    void set(bool, bool, int, double);
+    void set(bool, bool, int, double, int);
     void setMount(bool);
     bool getMount();
     void show();

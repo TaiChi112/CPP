@@ -1,44 +1,61 @@
-# compiler and flags
+# Compiler and flags
 CXX = g++
-CXXFLAGS = -Wall -Wextra -Iinclude
-LDFLAGS = 
+CXXFLAGS = -Wall -Wextra -Iinclude -I/usr/include/gtest  # เพิ่ม path ของ Google Test
+LDFLAGS = -lgtest -lgtest_main -pthread -L/usr/lib/x86_64-linux-gnu  # ลิงก์กับ Google Test
 
-SRC_DIR = src # src/.cpp
-APP_DIR = app # app/.cpp
-BUILD_DIR = build # build/.o
-BIN_DIR = bin # bin/.exe
+# Directories
+SRC_DIR = src
+APP_DIR = app
+BUILD_DIR = build
+BIN_DIR = bin
+TEST_DIR = test
 
-# source files
+# Source files
 SRC_FILES = $(wildcard $(SRC_DIR)/*.cpp)
 APP_FILES = $(wildcard $(APP_DIR)/*.cpp)
+TEST_FILES = $(wildcard $(TEST_DIR)/*.cpp)
 
-# object files
+# Object files
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRC_FILES))
 APP_OBJ_FILES = $(patsubst $(APP_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(APP_FILES))
+TEST_OBJ_FILES = $(patsubst $(TEST_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(TEST_FILES))
 
-# target
+# Target executables
 TARGET = $(BIN_DIR)/main.exe
+TEST_TARGET = $(BIN_DIR)/math_test.exe
 
-# default target
+# Default target
 all: $(TARGET)
 
-# link object files to create the executable
+# Link object files to create the main executable
 $(TARGET): $(OBJ_FILES) $(APP_OBJ_FILES)
 	@mkdir -p $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-# compile source files into object files
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+# Link object files to create the test executable
+$(TEST_TARGET): $(OBJ_FILES) $(TEST_OBJ_FILES)
+	@mkdir -p $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+
+# Compile source files into object files
+$(BUILD_DIR)/%.o: %.cpp
 	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(BUILD_DIR)/%.o: $(APP_DIR)/%.cpp
-	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+# Tell make where to find source files
+vpath %.cpp $(SRC_DIR) $(APP_DIR) $(TEST_DIR)
 
-# clean build artifacts
+# Run the main executable
+run: $(TARGET)
+	./$(TARGET)
+
+# Run the tests
+test: $(TEST_TARGET)
+	./$(TEST_TARGET)
+
+# Clean build artifacts
 clean:
 	rm -rf $(BUILD_DIR) $(BIN_DIR)
 
-# phony targets
-.PHONY: all clean
+# Phony targets
+.PHONY: all clean run test

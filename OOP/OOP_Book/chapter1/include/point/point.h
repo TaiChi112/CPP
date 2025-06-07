@@ -2,10 +2,13 @@
 #ifndef POINT_H
 #define POINT_H
 
-class Point{
-    float x,y;
+class Point
+{
+    float x, y;
     std::string name;
-    public:
+    static int amount_points;
+
+public:
     Point();
     Point(float x, float y, std::string name);
     ~Point();
@@ -14,6 +17,9 @@ class Point{
     std::string getName();
     void set_point(float x, float y, std::string name);
     void show();
+    static int getAmountPoints() {
+        return amount_points;
+    }
 };
 
 #endif

@@ -1,38 +1,31 @@
-# Compiler and flags
-CXX := g++
-CXXFLAGS := -Wall -Wextra -std=c++23
+CXX = g++
 
-# Directories
-SRC_DIRS := src modules components
-INC_DIRS := include
+SRC_DIR := src
+INC_DIR := include
+
+CXXFLAGS = -Wall -Wextra -std=c++23 -I$(INC_DIR)
+
+# Get all .cpp files recursively
+SRCS := $(shell find $(SRC_DIR) -name '*.cpp')
+OBJS := $(patsubst %.cpp, build/%.o, $(SRCS))
+
 BIN := bin/main.exe
 
-# Add include paths
-CXXFLAGS += $(foreach dir,$(INC_DIRS),-I$(dir))
-
-# Source and Object files
-SRCS := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/**/*.cpp) $(wildcard $(dir)/*.cpp))
-OBJS := $(patsubst %.cpp,build/%.o,$(SRCS))
-
-# Default target
 all: $(BIN)
 
-# Linking
 $(BIN): $(OBJS)
 	@mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-# Compiling .cpp → .o
+# Compile each .cpp file into a .o file
 build/%.o: %.cpp
 	@mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Run
 run: $(BIN)
 	./$(BIN)
 
-# Clean
 clean:
-	rm -rf bin build
+	rm -rf bin/* build/*
 
 .PHONY: all run clean

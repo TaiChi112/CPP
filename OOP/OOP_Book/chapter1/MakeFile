@@ -1,0 +1,38 @@
+# Compiler and flags
+CXX := g++
+CXXFLAGS := -Wall -Wextra -std=c++23
+
+# Directories
+SRC_DIRS := src modules components
+INC_DIRS := include
+BIN := bin/main.exe
+
+# Add include paths
+CXXFLAGS += $(foreach dir,$(INC_DIRS),-I$(dir))
+
+# Source and Object files
+SRCS := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/**/*.cpp) $(wildcard $(dir)/*.cpp))
+OBJS := $(patsubst %.cpp,build/%.o,$(SRCS))
+
+# Default target
+all: $(BIN)
+
+# Linking
+$(BIN): $(OBJS)
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+# Compiling .cpp → .o
+build/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Run
+run: $(BIN)
+	./$(BIN)
+
+# Clean
+clean:
+	rm -rf bin build
+
+.PHONY: all run clean

@@ -5,6 +5,7 @@
 using namespace std;
 
 int main(){
+    cout<<"Amount of points: "<<Point::getAmountPoints()<<endl;
     Point p1;
     p1.show();
 
@@ -16,6 +17,6 @@ int main(){
     cout << "X coordinate of p2: " << p2.getX() << endl;
     cout << "Y coordinate of p2: " << p2.getY() << endl;    
     cout << "Name of p2: " << p2.getName() << endl;
-    
+    cout << "Amount of points: " << Point::getAmountPoints() << endl;
     return 0;
 }

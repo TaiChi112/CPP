@@ -143,20 +143,49 @@ void print_vector_struct_array()
 
 int main()
 {
-    print_static_primitives();
-    cout << endl;
-    print_dynamic_primitives();
-    cout << endl;
-    print_vector_primitives();
-    cout << endl;
-    print_static_primitive_arrays();
-    cout << endl;
-    print_dynamic_primitive_arrays();
-    cout << endl;
-    print_vector_primitive_arrays();
-    cout << endl;
-    print_static_struct_array();
-    print_dynamic_struct_array();
-    print_vector_struct_array();
+    do
+    {
+        string choice;
+        cout << "Enter a choice (static, dynamic, vector): ";
+        cin >> choice;
+        if (choice == "static")
+        {
+            cout << endl;
+            cout << "Static (stack) memory allocation:" << endl;
+            print_static_primitives();
+            cout << endl;
+            print_static_primitive_arrays();
+            cout << endl;
+            print_static_struct_array();
+            cout << endl;
+        }
+        else if (choice == "dynamic")
+        {
+            cout << endl;
+            cout << "Dynamic (heap) memory allocation:" << endl;
+            print_dynamic_primitives();
+            cout << endl;
+            print_dynamic_primitive_arrays();
+            cout << endl;
+            print_dynamic_struct_array();
+            cout << endl;
+        }
+        else if (choice == "vector")
+        {
+            cout << endl;
+            cout << "Dynamic (heap) memory allocation:" << endl;
+            print_vector_primitives();
+            cout << endl;
+            print_vector_primitive_arrays();
+            cout << endl;
+            print_vector_struct_array();
+            cout << endl;
+        }
+        cout << "Do you want to continue? (yes/no): ";
+        string cont;
+        cin >> cont;
+        if (cont != "yes" && cont != "y")
+            break;
+    } while (true);
     return 0;
 }

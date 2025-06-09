@@ -2,97 +2,103 @@
 #include <vector>
 using namespace std;
 
-void print_static_primitive_type()
+// Print static (stack) primitive types
+void print_static_primitives()
 {
     int i = 1;
-    float f = 1.0;
+    float f = 1.0f;
     char c = 'a';
-    cout << "int: " << sizeof(int) << " bytes" << " value: " << i << endl;
-    cout << "float: " << sizeof(float) << " bytes" << " value: " << f << endl;
-    cout << "char: " << sizeof(char) << " bytes" << " value: " << c << endl;
+    cout << "int: " << sizeof(i) << " bytes, value: " << i << endl;
+    cout << "float: " << sizeof(f) << " bytes, value: " << f << endl;
+    cout << "char: " << sizeof(c) << " bytes, value: " << c << endl;
 }
-void print_dynamic_primitive_type()
+
+// Print dynamic (heap) primitive types
+void print_dynamic_primitives()
 {
     int *i = new int(1);
-    float *f = new float(1.0);
+    float *f = new float(1.0f);
     char *c = new char('a');
-    cout << "int: " << sizeof(int *) << " bytes" << " value: " << *i << endl;
-    cout << "float: " << sizeof(float *) << " bytes" << " value: " << *f << endl;
-    cout << "char: " << sizeof(char *) << " bytes" << " value: " << *c << endl;
+    cout << "int*: " << sizeof(i) << " bytes, value: " << *i << endl;
+    cout << "float*: " << sizeof(f) << " bytes, value: " << *f << endl;
+    cout << "char*: " << sizeof(c) << " bytes, value: " << *c << endl;
     delete i;
     delete f;
     delete c;
 }
-void print_dynamic_primitive_type_with_vector()
+
+// Print primitives using std::vector (single element)
+void print_vector_primitives()
 {
-    vector<int> i = {1};
-    vector<float> f = {1.0};
-    vector<char> c = {'a'};
-    cout << "int: " << sizeof(int) * i.size() << " bytes" << " value: " << i[0] << endl;
-    cout << "float: " << sizeof(float) * f.size() << " bytes" << " value: " << f[0] << endl;
-    cout << "char: " << sizeof(char) * c.size() << " bytes" << " value: " << c[0] << endl;
+    vector<int> vi{1};
+    vector<float> vf{1.0f};
+    vector<char> vc{'a'};
+    cout << "vector<int>: " << sizeof(int) * vi.size() << " bytes, value: " << vi[0] << endl;
+    cout << "vector<float>: " << sizeof(float) * vf.size() << " bytes, value: " << vf[0] << endl;
+    cout << "vector<char>: " << sizeof(char) * vc.size() << " bytes, value: " << vc[0] << endl;
 }
-void print_static_array_primitive_type()
+
+// Print static arrays of primitives
+void print_static_primitive_arrays()
 {
-    int i[5] = {1, 2, 3, 4, 5};
-    float f[5] = {1.0, 2.0, 3.0, 4.0, 5.0};
-    char c[5] = {'a', 'b', 'c', 'd', 'e'};
-    cout << "int array: " << sizeof(i) << " bytes" << " values: ";
-    for (int j = 0; j < 5; ++j) {
-        cout << i[j] << " ";
-    }
+    int ai[5] = {1, 2, 3, 4, 5};
+    float af[5] = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
+    char ac[5] = {'a', 'b', 'c', 'd', 'e'};
+    cout << "int[5]: " << sizeof(ai) << " bytes, values: ";
+    for (int v : ai)
+        cout << v << " ";
     cout << endl;
-    cout << "float array: " << sizeof(f) << " bytes" << " values: ";
-    for (int j = 0; j < 5; ++j) {
-        cout << f[j] << " ";
-    }
+    cout << "float[5]: " << sizeof(af) << " bytes, values: ";
+    for (float v : af)
+        cout << v << " ";
     cout << endl;
-    cout << "char array: " << sizeof(c) << " bytes" << " values: ";
-    for (int j = 0; j < 5; ++j) {
-        cout << c[j] << " ";
-    }
+    cout << "char[5]: " << sizeof(ac) << " bytes, values: ";
+    for (char v : ac)
+        cout << v << " ";
+    cout << endl;
 }
-void print_dynamic_array_primitive_type()
+
+// Print dynamic arrays of primitives
+void print_dynamic_primitive_arrays()
 {
-    int *i = new int[5]{1, 2, 3, 4, 5};
-    float *f = new float[5]{1.0, 2.0, 3.0, 4.0, 5.0};
-    char *c = new char[5]{'a', 'b', 'c', 'd', 'e'};
-    cout << "int array: " << sizeof(int *) * 5 << " bytes" << " values: ";
-    for (int j = 0; j < 5; ++j) {
-        cout << i[j] << " ";
-    }
+    int *ai = new int[5]{1, 2, 3, 4, 5};
+    float *af = new float[5]{1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
+    char *ac = new char[5]{'a', 'b', 'c', 'd', 'e'};
+    cout << "int* (5 elements): " << sizeof(int) * 5 << " bytes, values: ";
+    for (int j = 0; j < 5; ++j)
+        cout << ai[j] << " ";
     cout << endl;
-    cout << "float array: " << sizeof(float *) * 5 << " bytes" << " values: ";
-    for (int j = 0; j < 5; ++j) {
-        cout << f[j] << " ";
-    }
+    cout << "float* (5 elements): " << sizeof(float) * 5 << " bytes, values: ";
+    for (int j = 0; j < 5; ++j)
+        cout << af[j] << " ";
     cout << endl;
-    cout << "char array: " << sizeof(char *) * 5 << " bytes" << " values: ";
-    for (int j = 0; j < 5; ++j) {
-        cout << c[j] << " ";
-    }
-    delete[] i;
-    delete[] f;
-    delete[] c;
+    cout << "char* (5 elements): " << sizeof(char) * 5 << " bytes, values: ";
+    for (int j = 0; j < 5; ++j)
+        cout << ac[j] << " ";
+    cout << endl;
+    delete[] ai;
+    delete[] af;
+    delete[] ac;
 }
-void print_dynamic_array_with_vector(){
-    vector<int> i = {1, 2, 3, 4, 5};
-    vector<float> f = {1.0, 2.0, 3.0, 4.0, 5.0};
-    vector<char> c = {'a', 'b', 'c', 'd', 'e'};
-    cout << "int vector: " << sizeof(int) * i.size() << " bytes" << " values: ";
-    for (const auto &val : i) {
-        cout << val << " ";
-    }
+
+// Print arrays of primitives using std::vector
+void print_vector_primitive_arrays()
+{
+    vector<int> vi{1, 2, 3, 4, 5};
+    vector<float> vf{1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
+    vector<char> vc{'a', 'b', 'c', 'd', 'e'};
+    cout << "vector<int>: " << sizeof(int) * vi.size() << " bytes, values: ";
+    for (int v : vi)
+        cout << v << " ";
     cout << endl;
-    cout << "float vector: " << sizeof(float) * f.size() << " bytes" << " values: ";
-    for (const auto &val : f) {
-        cout << val << " ";
-    }
+    cout << "vector<float>: " << sizeof(float) * vf.size() << " bytes, values: ";
+    for (float v : vf)
+        cout << v << " ";
     cout << endl;
-    cout << "char vector: " << sizeof(char) * c.size() << " bytes" << " values: ";
-    for (const auto &val : c) {
-        cout << val << " ";
-    }
+    cout << "vector<char>: " << sizeof(char) * vc.size() << " bytes, values: ";
+    for (char v : vc)
+        cout << v << " ";
+    cout << endl;
 }
 
 struct Node
@@ -100,68 +106,57 @@ struct Node
     int id;
     string data;
 };
-void print_static_array_struct_type()
+
+// Print static array of structs
+void print_static_struct_array()
 {
     Node nodes[5] = {
-        {1, "data1"},
-        {2, "data2"},
-        {3, "data3"},
-        {4, "data4"},
-        {5, "data5"}
-    };
-    cout << "Node array: " << sizeof(nodes) << " bytes" << " values: ";
-    for (const auto &node : nodes) {
+        {1, "data1"}, {2, "data2"}, {3, "data3"}, {4, "data4"}, {5, "data5"}};
+    cout << "Node[5]: " << sizeof(nodes) << " bytes, values: ";
+    for (const auto &node : nodes)
         cout << "{" << node.id << ", " << node.data << "} ";
-    }
     cout << endl;
 }
-void print_dynamic_array_struct_type()
+
+// Print dynamic array of structs
+void print_dynamic_struct_array()
 {
     Node *nodes = new Node[5]{
-        {1, "data1"},
-        {2, "data2"},
-        {3, "data3"},
-        {4, "data4"},
-        {5, "data5"}
-    };
-    cout << "Node array: " << sizeof(Node *) * 5 << " bytes" << " values: ";
-    for (int j = 0; j < 5; ++j) {
+        {1, "data1"}, {2, "data2"}, {3, "data3"}, {4, "data4"}, {5, "data5"}};
+    cout << "Node* (5 elements): " << sizeof(Node) * 5 << " bytes, values: ";
+    for (int j = 0; j < 5; ++j)
         cout << "{" << nodes[j].id << ", " << nodes[j].data << "} ";
-    }
     cout << endl;
     delete[] nodes;
 }
-void print_dynamic_array_struct_with_vector()
+
+// Print vector of structs
+void print_vector_struct_array()
 {
     vector<Node> nodes = {
-        {1, "data1"},
-        {2, "data2"},
-        {3, "data3"},
-        {4, "data4"},
-        {5, "data5"}
-    };
-    cout << "Node vector: " << sizeof(Node) * nodes.size() << " bytes" << " values: ";
-    for (const auto &node : nodes) {
+        {1, "data1"}, {2, "data2"}, {3, "data3"}, {4, "data4"}, {5, "data5"}};
+    cout << "vector<Node>: " << sizeof(Node) * nodes.size() << " bytes, values: ";
+    for (const auto &node : nodes)
         cout << "{" << node.id << ", " << node.data << "} ";
-    }
     cout << endl;
 }
+
 int main()
 {
-    print_static_primitive_type();
+    print_static_primitives();
     cout << endl;
-    print_dynamic_primitive_type();
+    print_dynamic_primitives();
     cout << endl;
-    print_dynamic_primitive_type_with_vector();
+    print_vector_primitives();
     cout << endl;
-    print_static_array_primitive_type();
+    print_static_primitive_arrays();
     cout << endl;
+    print_dynamic_primitive_arrays();
     cout << endl;
-    print_dynamic_array_primitive_type();
+    print_vector_primitive_arrays();
     cout << endl;
-    cout << endl;
-    print_dynamic_array_with_vector();
-    cout << endl;
-    cout << endl;
+    print_static_struct_array();
+    print_dynamic_struct_array();
+    print_vector_struct_array();
     return 0;
 }

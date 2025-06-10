@@ -59,5 +59,24 @@ This project demonstrates various ways to allocate and use primitive types, arra
 
 ---
 
+## Tips for Writing Your Own
+
+- **Choose the Right Allocation:**  
+  Use stack allocation for small, short-lived data. Use heap allocation for large or dynamic data sizes. Use `std::vector` for safer and more flexible dynamic arrays.
+- **Understand Memory Layout:**  
+  Static arrays have fixed size and are contiguous in memory. Dynamic arrays require manual memory management. Vectors manage memory automatically.
+- **Multi-dimensional Arrays:**  
+  For 2D and 3D arrays, you can use nested arrays or nested vectors. Vectors are easier to resize and manage.
+- **Structs in Arrays:**  
+  You can store structs in any array type. Use vectors of structs for dynamic collections.
+- **Always Free Heap Memory:**  
+  When using `new` or `new[]`, always pair with `delete` or `delete[]` to avoid memory leaks.
+- **Printing and Debugging:**  
+  Print sizes with `sizeof` and values with loops to understand how your data is stored and accessed.
+- **Prefer STL Containers:**  
+  Prefer `std::vector` and other STL containers for safety, flexibility, and ease of use.
+
+---
+
 **Summary:**  
 This code helps visualize the differences between stack and heap allocation, raw arrays and vectors, and how memory size and data access differ for each approach in C++. It covers 1D, 2D, and 3D arrays for both primitive types and structs.

@@ -478,6 +478,11 @@ int main()
             print_static_primitive_2d_arrays();
             cout << endl;
             print_static_struct_2d_array();
+            cout << endl;
+            print_static_primitive_3d_arrays();
+            cout << endl;
+            print_static_struct_3d_array();
+            cout << endl;
         }
         else if (choice == "dynamic")
         {
@@ -493,6 +498,10 @@ int main()
             cout << endl;
             print_dynamic_struct_2d_array();
             cout << endl;
+            print_dynamic_primitive_3d_arrays();
+            cout << endl;
+            print_dynamic_struct_3d_array();
+            cout << endl;
         }
         else if (choice == "vector")
         {
@@ -507,6 +516,10 @@ int main()
             print_vector_primitive_2d_arrays();
             cout << endl;
             print_vector_struct_2d_array();
+            cout << endl;
+            print_vector_primitive_3d_arrays();
+            cout << endl;
+            print_vector_struct_3d_array();
             cout << endl;
         }
         cout << "Do you want to continue? (yes/no): ";

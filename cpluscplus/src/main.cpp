@@ -185,6 +185,123 @@ void print_vector_primitive_2d_arrays()
     cout << endl;
 }
 
+// Print static 3D arrays of primitives
+void print_static_primitive_3d_arrays()
+{
+    int ai[2][2][3] = {
+        {{1, 2, 3}, {4, 5, 6}},
+        {{7, 8, 9}, {10, 11, 12}}};
+    float af[2][2][3] = {
+        {{1.0f, 2.0f, 3.0f}, {4.0f, 5.0f, 6.0f}},
+        {{7.0f, 8.0f, 9.0f}, {10.0f, 11.0f, 12.0f}}};
+    char ac[2][2][3] = {
+        {{'a', 'b', 'c'}, {'d', 'e', 'f'}},
+        {{'g', 'h', 'i'}, {'j', 'k', 'l'}}};
+    cout << "int[2][2][3]: " << sizeof(ai) << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 2; ++j)
+            for (int k = 0; k < 3; ++k)
+                cout << ai[i][j][k] << " ";
+    cout << endl;
+    cout << "float[2][2][3]: " << sizeof(af) << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 2; ++j)
+            for (int k = 0; k < 3; ++k)
+                cout << af[i][j][k] << " ";
+    cout << endl;
+    cout << "char[2][2][3]: " << sizeof(ac) << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 2; ++j)
+            for (int k = 0; k < 3; ++k)
+                cout << ac[i][j][k] << " ";
+    cout << endl;
+}
+
+// Print dynamic 3D arrays of primitives
+void print_dynamic_primitive_3d_arrays()
+{
+    int ***ai = new int **[2];
+    float ***af = new float **[2];
+    char ***ac = new char **[2];
+    for (int i = 0; i < 2; ++i)
+    {
+        ai[i] = new int *[2];
+        af[i] = new float *[2];
+        ac[i] = new char *[2];
+        for (int j = 0; j < 2; ++j)
+        {
+            ai[i][j] = new int[3]{1 + i * 6 + j * 3, 2 + i * 6 + j * 3, 3 + i * 6 + j * 3};
+            af[i][j] = new float[3]{1.0f + i * 6 + j * 3, 2.0f + i * 6 + j * 3, 3.0f + i * 6 + j * 3};
+            ac[i][j] = new char[3]{static_cast<char>('a' + i * 6 + j * 3), static_cast<char>('b' + i * 6 + j * 3), static_cast<char>('c' + i * 6 + j * 3)};
+        }
+    }
+    cout << "int*** (2x2x3): " << sizeof(int) * 2 * 2 * 3 << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 2; ++j)
+            for (int k = 0; k < 3; ++k)
+                cout << ai[i][j][k] << " ";
+    cout << endl;
+    cout << "float*** (2x2x3): " << sizeof(float) * 2 * 2 * 3 << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 2; ++j)
+            for (int k = 0; k < 3; ++k)
+                cout << af[i][j][k] << " ";
+    cout << endl;
+    cout << "char*** (2x2x3): " << sizeof(char) * 2 * 2 * 3 << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 2; ++j)
+            for (int k = 0; k < 3; ++k)
+                cout << ac[i][j][k] << " ";
+    cout << endl;
+    for (int i = 0; i < 2; ++i)
+    {
+        for (int j = 0; j < 2; ++j)
+        {
+            delete[] ai[i][j];
+            delete[] af[i][j];
+            delete[] ac[i][j];
+        }
+        delete[] ai[i];
+        delete[] af[i];
+        delete[] ac[i];
+    }
+    delete[] ai;
+    delete[] af;
+    delete[] ac;
+}
+
+// Print 3D arrays of primitives using std::vector
+void print_vector_primitive_3d_arrays()
+{
+    vector<vector<vector<int>>> vi{
+        {{1, 2, 3}, {4, 5, 6}},
+        {{7, 8, 9}, {10, 11, 12}}};
+    vector<vector<vector<float>>> vf{
+        {{1.0f, 2.0f, 3.0f}, {4.0f, 5.0f, 6.0f}},
+        {{7.0f, 8.0f, 9.0f}, {10.0f, 11.0f, 12.0f}}};
+    vector<vector<vector<char>>> vc{
+        {{'a', 'b', 'c'}, {'d', 'e', 'f'}},
+        {{'g', 'h', 'i'}, {'j', 'k', 'l'}}};
+    cout << "vector<vector<vector<int>>>: " << sizeof(int) * vi.size() * vi[0].size() * vi[0][0].size() << " bytes, values: ";
+    for (const auto &mat : vi)
+        for (const auto &row : mat)
+            for (int v : row)
+                cout << v << " ";
+    cout << endl;
+    cout << "vector<vector<vector<float>>>: " << sizeof(float) * vf.size() * vf[0].size() * vf[0][0].size() << " bytes, values: ";
+    for (const auto &mat : vf)
+        for (const auto &row : mat)
+            for (float v : row)
+                cout << v << " ";
+    cout << endl;
+    cout << "vector<vector<vector<char>>>: " << sizeof(char) * vc.size() * vc[0].size() * vc[0][0].size() << " bytes, values: ";
+    for (const auto &mat : vc)
+        for (const auto &row : mat)
+            for (char v : row)
+                cout << v << " ";
+    cout << endl;
+}
+
 struct Node
 {
     int id;
@@ -229,9 +346,8 @@ void print_vector_struct_array()
 void print_static_struct_2d_array()
 {
     Node nodes[2][3] = {
-        { {1, "data1"}, {2, "data2"}, {3, "data3"} },
-        { {4, "data4"}, {5, "data5"}, {6, "data6"} }
-    };
+        {{1, "data1"}, {2, "data2"}, {3, "data3"}},
+        {{4, "data4"}, {5, "data5"}, {6, "data6"}}};
     cout << "Node[2][3]: " << sizeof(nodes) << " bytes, values: ";
     for (int i = 0; i < 2; ++i)
         for (int j = 0; j < 3; ++j)
@@ -242,13 +358,12 @@ void print_static_struct_2d_array()
 // Print dynamic 2D array of structs
 void print_dynamic_struct_2d_array()
 {
-    Node** nodes = new Node*[2];
+    Node **nodes = new Node *[2];
     for (int i = 0; i < 2; ++i)
         nodes[i] = new Node[3]{
             {1 + i * 3, "data" + to_string(1 + i * 3)},
             {2 + i * 3, "data" + to_string(2 + i * 3)},
-            {3 + i * 3, "data" + to_string(3 + i * 3)}
-        };
+            {3 + i * 3, "data" + to_string(3 + i * 3)}};
     cout << "Node** (2x3): " << sizeof(Node) * 2 * 3 << " bytes, values: ";
     for (int i = 0; i < 2; ++i)
         for (int j = 0; j < 3; ++j)
@@ -263,12 +378,11 @@ void print_dynamic_struct_2d_array()
 void print_vector_struct_2d_array()
 {
     vector<vector<Node>> nodes = {
-        { {1, "data1"}, {2, "data2"}, {3, "data3"} },
-        { {4, "data4"}, {5, "data5"}, {6, "data6"} }
-    };
+        {{1, "data1"}, {2, "data2"}, {3, "data3"}},
+        {{4, "data4"}, {5, "data5"}, {6, "data6"}}};
     cout << "vector<vector<Node>>: " << sizeof(Node) * nodes.size() * nodes[0].size() << " bytes, values: ";
-    for (const auto& row : nodes)
-        for (const auto& node : row)
+    for (const auto &row : nodes)
+        for (const auto &node : row)
             cout << "{" << node.id << ", " << node.data << "} ";
     cout << endl;
 }

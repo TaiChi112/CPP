@@ -386,6 +386,78 @@ void print_vector_struct_2d_array()
             cout << "{" << node.id << ", " << node.data << "} ";
     cout << endl;
 }
+// Print static 3D array of structs
+void print_static_struct_3d_array()
+{
+    Node nodes[2][2][3] = {
+        {
+            { {1, "data1"}, {2, "data2"}, {3, "data3"} },
+            { {4, "data4"}, {5, "data5"}, {6, "data6"} }
+        },
+        {
+            { {7, "data7"}, {8, "data8"}, {9, "data9"} },
+            { {10, "data10"}, {11, "data11"}, {12, "data12"} }
+        }
+    };
+    cout << "Node[2][2][3]: " << sizeof(nodes) << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 2; ++j)
+            for (int k = 0; k < 3; ++k)
+                cout << "{" << nodes[i][j][k].id << ", " << nodes[i][j][k].data << "} ";
+    cout << endl;
+}
+
+// Print dynamic 3D array of structs
+void print_dynamic_struct_3d_array()
+{
+    Node*** nodes = new Node**[2];
+    for (int i = 0; i < 2; ++i)
+    {
+        nodes[i] = new Node*[2];
+        for (int j = 0; j < 2; ++j)
+        {
+            nodes[i][j] = new Node[3]{
+                {1 + i * 6 + j * 3, "data" + to_string(1 + i * 6 + j * 3)},
+                {2 + i * 6 + j * 3, "data" + to_string(2 + i * 6 + j * 3)},
+                {3 + i * 6 + j * 3, "data" + to_string(3 + i * 6 + j * 3)}
+            };
+        }
+    }
+    cout << "Node*** (2x2x3): " << sizeof(Node) * 2 * 2 * 3 << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 2; ++j)
+            for (int k = 0; k < 3; ++k)
+                cout << "{" << nodes[i][j][k].id << ", " << nodes[i][j][k].data << "} ";
+    cout << endl;
+    for (int i = 0; i < 2; ++i)
+    {
+        for (int j = 0; j < 2; ++j)
+            delete[] nodes[i][j];
+        delete[] nodes[i];
+    }
+    delete[] nodes;
+}
+
+// Print vector 3D array of structs
+void print_vector_struct_3d_array()
+{
+    vector<vector<vector<Node>>> nodes = {
+        {
+            { {1, "data1"}, {2, "data2"}, {3, "data3"} },
+            { {4, "data4"}, {5, "data5"}, {6, "data6"} }
+        },
+        {
+            { {7, "data7"}, {8, "data8"}, {9, "data9"} },
+            { {10, "data10"}, {11, "data11"}, {12, "data12"} }
+        }
+    };
+    cout << "vector<vector<vector<Node>>>: " << sizeof(Node) * nodes.size() * nodes[0].size() * nodes[0][0].size() << " bytes, values: ";
+    for (const auto& mat : nodes)
+        for (const auto& row : mat)
+            for (const auto& node : row)
+                cout << "{" << node.id << ", " << node.data << "} ";
+    cout << endl;
+}
 int main()
 {
     do

@@ -101,6 +101,90 @@ void print_vector_primitive_arrays()
     cout << endl;
 }
 
+// Print static 2D arrays of primitives
+void print_static_primitive_2d_arrays()
+{
+    int ai[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    float af[2][3] = {{1.0f, 2.0f, 3.0f}, {4.0f, 5.0f, 6.0f}};
+    char ac[2][3] = {{'a', 'b', 'c'}, {'d', 'e', 'f'}};
+    cout << "int[2][3]: " << sizeof(ai) << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 3; ++j)
+            cout << ai[i][j] << " ";
+    cout << endl;
+    cout << "float[2][3]: " << sizeof(af) << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 3; ++j)
+            cout << af[i][j] << " ";
+    cout << endl;
+    cout << "char[2][3]: " << sizeof(ac) << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 3; ++j)
+            cout << ac[i][j] << " ";
+    cout << endl;
+}
+
+// Print dynamic 2D arrays of primitives
+void print_dynamic_primitive_2d_arrays()
+{
+    int **ai = new int *[2];
+    float **af = new float *[2];
+    char **ac = new char *[2];
+    for (int i = 0; i < 2; ++i)
+    {
+        ai[i] = new int[3]{1 + i * 3, 2 + i * 3, 3 + i * 3};
+        af[i] = new float[3]{1.0f + i * 3, 2.0f + i * 3, 3.0f + i * 3};
+        ac[i] = new char[3]{static_cast<char>('a' + i * 3), static_cast<char>('b' + i * 3), static_cast<char>('c' + i * 3)};
+    }
+    cout << "int** (2x3): " << sizeof(int) * 2 * 3 << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 3; ++j)
+            cout << ai[i][j] << " ";
+    cout << endl;
+    cout << "float** (2x3): " << sizeof(float) * 2 * 3 << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 3; ++j)
+            cout << af[i][j] << " ";
+    cout << endl;
+    cout << "char** (2x3): " << sizeof(char) * 2 * 3 << " bytes, values: ";
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < 3; ++j)
+            cout << ac[i][j] << " ";
+    cout << endl;
+    for (int i = 0; i < 2; ++i)
+    {
+        delete[] ai[i];
+        delete[] af[i];
+        delete[] ac[i];
+    }
+    delete[] ai;
+    delete[] af;
+    delete[] ac;
+}
+
+// Print 2D arrays of primitives using std::vector
+void print_vector_primitive_2d_arrays()
+{
+    vector<vector<int>> vi{{1, 2, 3}, {4, 5, 6}};
+    vector<vector<float>> vf{{1.0f, 2.0f, 3.0f}, {4.0f, 5.0f, 6.0f}};
+    vector<vector<char>> vc{{'a', 'b', 'c'}, {'d', 'e', 'f'}};
+    cout << "vector<vector<int>>: " << sizeof(int) * vi.size() * vi[0].size() << " bytes, values: ";
+    for (const auto &row : vi)
+        for (int v : row)
+            cout << v << " ";
+    cout << endl;
+    cout << "vector<vector<float>>: " << sizeof(float) * vf.size() * vf[0].size() << " bytes, values: ";
+    for (const auto &row : vf)
+        for (float v : row)
+            cout << v << " ";
+    cout << endl;
+    cout << "vector<vector<char>>: " << sizeof(char) * vc.size() * vc[0].size() << " bytes, values: ";
+    for (const auto &row : vc)
+        for (char v : row)
+            cout << v << " ";
+    cout << endl;
+}
+
 struct Node
 {
     int id;
@@ -158,6 +242,8 @@ int main()
             cout << endl;
             print_static_struct_array();
             cout << endl;
+            print_static_primitive_2d_arrays();
+            cout << endl;
         }
         else if (choice == "dynamic")
         {
@@ -169,6 +255,8 @@ int main()
             cout << endl;
             print_dynamic_struct_array();
             cout << endl;
+            print_dynamic_primitive_2d_arrays();
+            cout << endl;
         }
         else if (choice == "vector")
         {
@@ -179,6 +267,8 @@ int main()
             print_vector_primitive_arrays();
             cout << endl;
             print_vector_struct_array();
+            cout << endl;
+            print_vector_primitive_2d_arrays();
             cout << endl;
         }
         cout << "Do you want to continue? (yes/no): ";

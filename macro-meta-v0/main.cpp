@@ -1,38 +1,29 @@
 #include <iostream>
-#define i int
-#define f float
-#define s string
-#define v void
-#define c class
-#define st struct
-#define b bool
-#define pb public
-#define oi cout <<
-#define io cin >>
+// Removed single-character macros and replaced them with standard C++ types.
 
 using namespace std;
 
-st Point
+struct Point
 {
-    i x, y;
-    Point(i x, i y) : x(x), y(y) {}
-    v display()
+    int x, y;
+    Point(int x, int y) : x(x), y(y) {}
+    void display()
     {
-        oi "Point coordinates: (" << x << ", " << y << ")" << std::endl;
+        std::cout << "Point coordinates: (" << x << ", " << y << ")" << std::endl;
     }
 };
-c Person
+class Person
 {
-    i id;
-    s name;
-pb:
-    Person(i id, s name) : id(id), name(name) {}
-    v display()
+    int id;
+    std::string name;
+public:
+    Person(int id, std::string name) : id(id), name(name) {}
+    void display()
     {
-        oi "Person ID: " << id << ", Name: " << name << std::endl;
+        std::cout << "Person ID: " << id << ", Name: " << name << std::endl;
     }
 };
-i main()
+int main()
 {
     Point p(5, 10);
     p.display();

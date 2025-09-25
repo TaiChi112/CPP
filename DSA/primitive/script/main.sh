@@ -1,0 +1,1 @@
+g++ -c src/main.cpp -o build/main.o && g++ build/main.o -o bin/main.exe && bin/main.exe

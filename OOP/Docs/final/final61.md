@@ -1,0 +1,61 @@
+- สร้าง class
+  - Cooking
+    - fields:
+      - Time time
+  - Grill
+    - fields:
+      - string stove_type
+  - Fry
+    - fields:
+      - bool is_oil
+  - Meat
+    - fields:
+      - bool is_organic
+  - Pork
+    - fields:
+      - int type_pork
+  - Chicken
+    - fields:
+      - int type_chicken
+  - Food
+    - fields:
+      - double price
+      - string dish_name
+      - Cooking *cooking
+      - Meat **meat
+      - int size
+  - Order
+    - fields:
+      - Food *food
+      - int size;
+      - bool is_member
+
+- type of class
+  - class Cooking Meat เป็น abstract class
+  - กำหนดให้ function show เป็น pure virtual function
+
+- relation of class
+  - Cooking เป็น base class ของ Grill และ Fry
+  - Meat เป็น base class ของ Pork และ Chicken
+
+- default constructor
+  - Cooking: time 0 minute
+  - Grill: stove_type "eletric" time 5 minute
+  - Fry: is_oil true time 3 minute
+  - Meat: is_organic false
+  - Pork: type_pork 1 is_organic true
+  - Chicken: type_chicken 1 is_organic false
+  - Food : price 20 dish_name "rice" cooking 0 meat 0 size 0
+  - Order : food 0 size 0 is_member false
+
+- constructor overload
+  - กำหนดค่าให้กับ attribute ทุกตัว โดยรับมาจาก parameter , meat & food case ให้ทำการ allocate memory ขนาดเท่ากับ size
+
+- function
+  - get ในการ return attribute เเต่ละค่า
+  - สำหรับ meat & food ให้ return ค่าสมาชิกใน array ทีละ 1 โดยระบุ index ที่ต้องการ
+  - show เเสดงข้อมูลของ subclass & base class ใช้หลักการ dynamic binding โดย show ของ abstract class ให้ทำเป็น pure virtual function
+  - สร้าง operator << ในการ print ค่าของ subclass & base class ใช้หลักการ dynamic binding
+
+- class Food
+  - function setMeat(int,Meat*)
